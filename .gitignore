@@ -6,3 +6,6 @@ build/
 .settings/
 src/gdx-realsense64.exp
 src/gdx-realsense64.lib
+src/gdx-realsense64.ilk
+src/gdx-realsense64.pdb
+.temp/

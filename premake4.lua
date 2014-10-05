@@ -25,6 +25,7 @@ project "gdx-realsense"
 	--- GENERAL STUFF FOR ALL PLATFORMS --------------------------------
 	kind "SharedLib"
 	language "C++"
+	platforms { "x64" }
 	location (BUILD_DIR .. "/" .. _ACTION)
 	files {
 		"./native/**.c*",
@@ -39,7 +40,7 @@ project "gdx-realsense"
 
 	configuration "Debug"
 		targetdir "src"
-		targetsuffix "64"
+		targetsuffix "64"		
 		defines {
 			"DEBUG",
 		}
