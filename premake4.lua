@@ -29,12 +29,14 @@ project "gdx-realsense"
 	--- debugdir "."
 
 	configuration "Debug"
+		targetdir "src"
 		defines {
 			"DEBUG",
 		}
 		flags { "Symbols" }
 	
 	configuration "Release"
+		targetdir "src"
 		defines {
 			"NDEBUG",
 		}
@@ -55,6 +57,6 @@ project "gdx-realsense"
 			(RS_SDK_ROOT .. "/lib/x64"),
 		}
 		links {
-			"libpcx",
+			"libpxc",
 		}
 		

@@ -54,6 +54,7 @@ dependencies {
     compile "com.badlogicgames.gdx:gdx:$gdxVersion"
     testCompile "junit:junit:4.+"
     testCompile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+    testCompile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 }
 
 tasks.eclipse.doLast {
