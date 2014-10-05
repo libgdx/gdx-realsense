@@ -8,10 +8,19 @@
 
 package com.badlogic.gdx.realsense;
 
-public class realsense implements realsenseConstants {
-  public static PXCSession PXCSession_Create() {
-    long cPtr = realsenseJNI.PXCSession_Create();
-    return (cPtr == 0) ? null : new PXCSession(cPtr, false);
+public class SWIGTYPE_p_p_PXCHandData__IHand {
+  private long swigCPtr;
+
+  protected SWIGTYPE_p_p_PXCHandData__IHand(long cPtr, boolean futureUse) {
+    swigCPtr = cPtr;
   }
 
+  protected SWIGTYPE_p_p_PXCHandData__IHand() {
+    swigCPtr = 0;
+  }
+
+  protected static long getCPtr(SWIGTYPE_p_p_PXCHandData__IHand obj) {
+    return (obj == null) ? 0 : obj.swigCPtr;
+  }
 }
+
