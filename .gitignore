@@ -4,5 +4,5 @@ build/
 .classpath
 .project
 .settings/
-src/gdx-realsense.exp
-src/gdx-realsense.lib
+src/gdx-realsense64.exp
+src/gdx-realsense64.lib

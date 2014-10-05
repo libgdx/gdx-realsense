@@ -39,6 +39,7 @@ project "gdx-realsense"
 
 	configuration "Debug"
 		targetdir "src"
+		targetsuffix "64"
 		defines {
 			"DEBUG",
 		}
@@ -46,6 +47,7 @@ project "gdx-realsense"
 	
 	configuration "Release"
 		targetdir "src"
+		targetsuffix "64"
 		defines {
 			"NDEBUG",
 		}

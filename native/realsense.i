@@ -35,3 +35,9 @@
 
 
 %include "native/include/pxcversion.h"
+
+%pragma(java) jniclasscode=%{
+	static {
+		new com.badlogic.gdx.utils.SharedLibraryLoader().load("gdx-realsense");
+	}
+%}

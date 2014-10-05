@@ -3,10 +3,12 @@ package com.badlogic.realsense;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.realsense.realsenseConstants;
 
 public class BasicRealSenseTest extends ApplicationAdapter {
 	@Override
 	public void create() {
+		Gdx.app.log("BasicRealSenseTest", realsenseConstants.PXC_VERSION_MAJOR + "." + realsenseConstants.PXC_VERSION_MINOR);
 	}
 
 	@Override

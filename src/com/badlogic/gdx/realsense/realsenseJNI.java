@@ -13,4 +13,9 @@ public class realsenseJNI {
   public final static native int PXC_VERSION_MINOR_get();
   public final static native int PXC_VERSION_BUILD_get();
   public final static native int PXC_VERSION_REVISION_get();
+
+	static {
+		new com.badlogic.gdx.utils.SharedLibraryLoader().load("gdx-realsense");
+	}
+
 }
