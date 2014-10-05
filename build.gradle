@@ -1,0 +1,61 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+}
+
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    mavenLocal()
+}
+
+ext {
+	projectGroup = "gdx-realsense"
+	gdxVersion = '1.3.1'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = [ "src/" ]
+        }
+        
+        resources {
+            srcDirs = [ "src/" ]
+        }
+    }
+    
+    test {
+        java {
+            srcDirs = [ "tests/" ]
+        }
+    }
+}
+
+javadoc {
+    title = 'GDX RealSense API'
+}
+
+/** needed to disable Java 8 doclint which throws errors **/
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+apply from : 'publish.gradle'
+	
+dependencies {
+    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+    testCompile "junit:junit:4.+"
+    testCompile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+}
+
+tasks.eclipse.doLast {
+    delete ".project"
+}
