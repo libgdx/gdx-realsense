@@ -5,6 +5,13 @@ if not RS_SDK_ROOT then
 	os.exit()
 end
 
+JAVA_HOME = os.getenv("JAVA_HOME")
+if not JAVA_HOME then
+	printf("ERROR: Environment variable JAVA_HOME is not set.")
+	printf("Set it to something like: C:\\Program Files (x86)\\Java\\jdk1.8.0_20")
+	os.exit()
+end
+
 BUILD_DIR = "build"
 if _ACTION == "clean" then
 	os.rmdir(BUILD_DIR)
@@ -24,7 +31,9 @@ project "gdx-realsense"
 		"./native/**.h",
 	}
 	includedirs {
-		(RS_SDK_ROOT .. "/include")
+		(RS_SDK_ROOT .. "/include"),
+		(JAVA_HOME .. "/include"),
+		(JAVA_HOME .. "/include/win32")
 	}
 	--- debugdir "."
 
