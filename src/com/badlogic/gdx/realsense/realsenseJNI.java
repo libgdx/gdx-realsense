@@ -807,6 +807,8 @@ public class realsenseJNI {
   public final static native long PXCImage_ImageData_pitches_get(long jarg1, PXCImage.ImageData jarg1_);
   public final static native void PXCImage_ImageData_planes_set(long jarg1, PXCImage.ImageData jarg1_, long jarg2);
   public final static native long PXCImage_ImageData_planes_get(long jarg1, PXCImage.ImageData jarg1_);
+  public final static native int PXCImage_ImageData_getPlanePitch(long jarg1, PXCImage.ImageData jarg1_, int jarg2);
+  public final static native void PXCImage_ImageData_getPlaneData(long jarg1, PXCImage.ImageData jarg1_, int jarg2, java.nio.ByteBuffer jarg3, int jarg4);
   public final static native long new_PXCImage_ImageData();
   public final static native void delete_PXCImage_ImageData(long jarg1);
   public final static native int PXCImage_ACCESS_READ_get();

@@ -97,6 +97,15 @@ public:
         pxcI32          reserved[3];
         pxcI32          pitches[NUM_OF_PLANES];     /* image pitches */
         pxcBYTE*        planes[NUM_OF_PLANES];      /* image buffers */
+
+		int getPlanePitch(int planeIdx) {
+			return pitches[planeIdx];
+		}
+
+		void getPlaneData(int planeIdx, unsigned char* planeDataOutput, int length) {
+			unsigned char* plane = (unsigned char*)planes[planeIdx];
+			memcpy(planeDataOutput, plane, length);
+		}
     };
 
     /** 

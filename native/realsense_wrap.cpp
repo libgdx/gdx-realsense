@@ -211,6 +211,9 @@ static void SWIGUNUSED SWIG_JavaThrowException(JNIEnv *jenv, SWIG_JavaExceptionC
 #define SWIG_contract_assert(nullreturn, expr, msg) if (!(expr)) {SWIG_JavaThrowException(jenv, SWIG_JavaIllegalArgumentException, msg); return nullreturn; } else
 
 
+#include <stdint.h>		// Use the C99 official header
+
+
 #include <pxc3dscan.h>
 #include <pxc3dseg.h>
 #include <pxcaddref.h>
@@ -11870,6 +11873,46 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCImage_1
   result = (pxcBYTE **)(pxcBYTE **) ((arg1)->planes);
   *(pxcBYTE ***)&jresult = result; 
   return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCImage_1ImageData_1getPlanePitch(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  jint jresult = 0 ;
+  PXCImage::ImageData *arg1 = (PXCImage::ImageData *) 0 ;
+  int arg2 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(PXCImage::ImageData **)&jarg1; 
+  arg2 = (int)jarg2; 
+  result = (int)(arg1)->getPlanePitch(arg2);
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCImage_1ImageData_1getPlaneData(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jobject jarg3, jint jarg4) {
+  PXCImage::ImageData *arg1 = (PXCImage::ImageData *) 0 ;
+  int arg2 ;
+  unsigned char *arg3 = (unsigned char *) 0 ;
+  int arg4 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(PXCImage::ImageData **)&jarg1; 
+  arg2 = (int)jarg2; 
+  {
+    arg3 = (unsigned char *) jenv->GetDirectBufferAddress(jarg3); 
+    if (arg3 == NULL) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaRuntimeException, "Unable to get address of a java.nio.ByteBuffer direct byte buffer. Buffer must be a direct buffer and not a non-direct buffer.");  
+    }  
+  }
+  arg4 = (int)jarg4; 
+  (arg1)->getPlaneData(arg2,arg3,arg4);
+  
 }
 
 

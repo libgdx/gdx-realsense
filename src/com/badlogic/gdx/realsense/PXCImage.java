@@ -163,6 +163,17 @@ public class PXCImage extends PXCBase {
       return (cPtr == 0) ? null : new SWIGTYPE_p_p_unsigned_char(cPtr, false);
     }
   
+    public int getPlanePitch(int planeIdx) {
+      return realsenseJNI.PXCImage_ImageData_getPlanePitch(swigCPtr, this, planeIdx);
+    }
+  
+    public void getPlaneData(int planeIdx, java.nio.ByteBuffer planeDataOutput, int length) {
+    assert planeDataOutput.isDirect() : "Buffer must be allocated direct.";
+      {
+        realsenseJNI.PXCImage_ImageData_getPlaneData(swigCPtr, this, planeIdx, planeDataOutput, length);
+      }
+    }
+  
     public ImageData() {
       this(realsenseJNI.new_PXCImage_ImageData(), true);
     }
