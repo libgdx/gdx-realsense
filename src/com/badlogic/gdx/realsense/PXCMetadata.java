@@ -63,6 +63,4 @@ public class PXCMetadata extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCMetadata_CreateSerializable(swigCPtr, this, id, cuid, SWIGTYPE_p_p_void.getCPtr(instance)));
   }
 
-  public final static int CUID = realsenseJNI.PXCMetadata_CUID_get();
-
 }

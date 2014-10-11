@@ -224,8 +224,6 @@ public class PXCAudio extends PXCBase {
     realsenseJNI.PXCAudio_AddRef(swigCPtr, this);
   }
 
-  public final static int CUID = realsenseJNI.PXCAudio_CUID_get();
-
   public final static class AudioFormat {
     public final static PXCAudio.AudioFormat AUDIO_FORMAT_PCM = new PXCAudio.AudioFormat("AUDIO_FORMAT_PCM", realsenseJNI.PXCAudio_AUDIO_FORMAT_PCM_get());
     public final static PXCAudio.AudioFormat AUDIO_FORMAT_IEEE_FLOAT = new PXCAudio.AudioFormat("AUDIO_FORMAT_IEEE_FLOAT", realsenseJNI.PXCAudio_AUDIO_FORMAT_IEEE_FLOAT_get());

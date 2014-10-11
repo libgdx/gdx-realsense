@@ -64,8 +64,11 @@ private:
     PXCBase& operator = (PXCBase const &);
 };
 
-#define PXC_CUID_OVERWRITE(X) enum { CUID=X }
-
+#ifdef SWIG
+	#define PXC_CUID_OVERWRITE(X)
+#else
+	#define PXC_CUID_OVERWRITE(X) enum { CUID=X }
+#endif
 ///////////////////////////////////////////////////////////////////////////////////////
 /**
    This template class contains a default implementation of the PXCBase

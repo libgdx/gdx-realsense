@@ -1065,18 +1065,6 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXC3DScan_
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXC3DScan_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXC3DScan::CUID;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXC3DSeg_1AcquireSegmentedImage(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   PXC3DSeg *arg1 = (PXC3DSeg *) 0 ;
@@ -1092,30 +1080,6 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXC3DSeg_1
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXC3DSeg_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXC3DSeg::CUID;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCAddRef_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCAddRef::CUID;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCAddRef_1AddRef(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   PXCAddRef *arg1 = (PXCAddRef *) 0 ;
@@ -1126,18 +1090,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCAddRef_1
   (void)jarg1_;
   arg1 = *(PXCAddRef **)&jarg1; 
   result = (pxcI32)(arg1)->AddRef();
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCAudio_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCAudio::CUID;
   jresult = (jint)result; 
   return jresult;
 }
@@ -1830,18 +1782,6 @@ SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCAudio_1A
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCAudioSource_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCAudioSource::CUID;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCAudioSource_1DeviceInfo_1name_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   PXCAudioSource::DeviceInfo *arg1 = (PXCAudioSource::DeviceInfo *) 0 ;
   pxcCHAR *arg2 ;
@@ -2072,18 +2012,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCAudioSou
   arg1 = *(PXCAudioSource **)&jarg1; 
   arg2 = (pxcF32)jarg2; 
   result = (pxcStatus)(arg1)->SetVolume(arg2);
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCCapture::CUID;
   jresult = (jint)result; 
   return jresult;
 }
@@ -2921,481 +2849,469 @@ SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_delete_1PXC
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1CUID_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1POWER_1LINE_1FREQUENCY_1DISABLED_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  int result;
+  PXCCapture::PowerLineFrequency result;
   
   (void)jenv;
   (void)jcls;
-  result = (int)PXCCapture::Device::CUID;
+  result = (PXCCapture::PowerLineFrequency)PXCCapture::POWER_LINE_FREQUENCY_DISABLED;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1POWER_1LINE_1FREQUENCY_1DISABLED_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1POWER_1LINE_1FREQUENCY_150HZ_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::PowerLineFrequency result;
+  PXCCapture::PowerLineFrequency result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::PowerLineFrequency)PXCCapture::Device::POWER_LINE_FREQUENCY_DISABLED;
+  result = (PXCCapture::PowerLineFrequency)PXCCapture::POWER_LINE_FREQUENCY_50HZ;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1POWER_1LINE_1FREQUENCY_150HZ_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1POWER_1LINE_1FREQUENCY_160HZ_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::PowerLineFrequency result;
+  PXCCapture::PowerLineFrequency result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::PowerLineFrequency)PXCCapture::Device::POWER_LINE_FREQUENCY_50HZ;
+  result = (PXCCapture::PowerLineFrequency)PXCCapture::POWER_LINE_FREQUENCY_60HZ;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1POWER_1LINE_1FREQUENCY_160HZ_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1MIRROR_1MODE_1DISABLED_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::PowerLineFrequency result;
+  PXCCapture::MirrorMode result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::PowerLineFrequency)PXCCapture::Device::POWER_LINE_FREQUENCY_60HZ;
+  result = (PXCCapture::MirrorMode)PXCCapture::MIRROR_MODE_DISABLED;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1MIRROR_1MODE_1DISABLED_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1MIRROR_1MODE_1HORIZONTAL_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::MirrorMode result;
+  PXCCapture::MirrorMode result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::MirrorMode)PXCCapture::Device::MIRROR_MODE_DISABLED;
+  result = (PXCCapture::MirrorMode)PXCCapture::MIRROR_MODE_HORIZONTAL;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1MIRROR_1MODE_1HORIZONTAL_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1IVCAM_1ACCURACY_1FINEST_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::MirrorMode result;
+  PXCCapture::IVCAMAccuracy result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::MirrorMode)PXCCapture::Device::MIRROR_MODE_HORIZONTAL;
+  result = (PXCCapture::IVCAMAccuracy)PXCCapture::IVCAM_ACCURACY_FINEST;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1IVCAM_1ACCURACY_1FINEST_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1IVCAM_1ACCURACY_1MEDIAN_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::IVCAMAccuracy result;
+  PXCCapture::IVCAMAccuracy result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::IVCAMAccuracy)PXCCapture::Device::IVCAM_ACCURACY_FINEST;
+  result = (PXCCapture::IVCAMAccuracy)PXCCapture::IVCAM_ACCURACY_MEDIAN;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1IVCAM_1ACCURACY_1MEDIAN_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1IVCAM_1ACCURACY_1COARSE_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::IVCAMAccuracy result;
+  PXCCapture::IVCAMAccuracy result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::IVCAMAccuracy)PXCCapture::Device::IVCAM_ACCURACY_MEDIAN;
+  result = (PXCCapture::IVCAMAccuracy)PXCCapture::IVCAM_ACCURACY_COARSE;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1IVCAM_1ACCURACY_1COARSE_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1EXPOSURE_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::IVCAMAccuracy result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::IVCAMAccuracy)PXCCapture::Device::IVCAM_ACCURACY_COARSE;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_EXPOSURE;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1EXPOSURE_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1BRIGHTNESS_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_EXPOSURE;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_BRIGHTNESS;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1BRIGHTNESS_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1CONTRAST_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_BRIGHTNESS;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_CONTRAST;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1CONTRAST_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1SATURATION_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_CONTRAST;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_SATURATION;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1SATURATION_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1HUE_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_SATURATION;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_HUE;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1HUE_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1GAMMA_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_HUE;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_GAMMA;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1GAMMA_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1WHITE_1BALANCE_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_GAMMA;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_WHITE_BALANCE;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1WHITE_1BALANCE_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1SHARPNESS_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_WHITE_BALANCE;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_SHARPNESS;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1SHARPNESS_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1BACK_1LIGHT_1COMPENSATION_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_SHARPNESS;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_BACK_LIGHT_COMPENSATION;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1BACK_1LIGHT_1COMPENSATION_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1GAIN_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_BACK_LIGHT_COMPENSATION;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_GAIN;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1GAIN_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1POWER_1LINE_1FREQUENCY_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_GAIN;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_POWER_LINE_FREQUENCY;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1POWER_1LINE_1FREQUENCY_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1FOCAL_1LENGTH_1MM_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_POWER_LINE_FREQUENCY;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_FOCAL_LENGTH_MM;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1FOCAL_1LENGTH_1MM_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1FIELD_1OF_1VIEW_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_FOCAL_LENGTH_MM;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_FIELD_OF_VIEW;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1FIELD_1OF_1VIEW_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1FOCAL_1LENGTH_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_FIELD_OF_VIEW;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_FOCAL_LENGTH;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1FOCAL_1LENGTH_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1COLOR_1PRINCIPAL_1POINT_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_FOCAL_LENGTH;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_COLOR_PRINCIPAL_POINT;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1COLOR_1PRINCIPAL_1POINT_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1DEPTH_1LOW_1CONFIDENCE_1VALUE_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_COLOR_PRINCIPAL_POINT;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_DEPTH_LOW_CONFIDENCE_VALUE;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1DEPTH_1LOW_1CONFIDENCE_1VALUE_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1DEPTH_1CONFIDENCE_1THRESHOLD_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_DEPTH_LOW_CONFIDENCE_VALUE;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_DEPTH_CONFIDENCE_THRESHOLD;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1DEPTH_1CONFIDENCE_1THRESHOLD_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1DEPTH_1UNIT_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_DEPTH_CONFIDENCE_THRESHOLD;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_DEPTH_UNIT;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1DEPTH_1UNIT_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1DEPTH_1FOCAL_1LENGTH_1MM_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_DEPTH_UNIT;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_DEPTH_FOCAL_LENGTH_MM;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1DEPTH_1FOCAL_1LENGTH_1MM_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1DEPTH_1FIELD_1OF_1VIEW_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_DEPTH_FOCAL_LENGTH_MM;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_DEPTH_FIELD_OF_VIEW;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1DEPTH_1FIELD_1OF_1VIEW_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1DEPTH_1SENSOR_1RANGE_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_DEPTH_FIELD_OF_VIEW;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_DEPTH_SENSOR_RANGE;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1DEPTH_1SENSOR_1RANGE_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1DEPTH_1FOCAL_1LENGTH_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_DEPTH_SENSOR_RANGE;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_DEPTH_FOCAL_LENGTH;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1DEPTH_1FOCAL_1LENGTH_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1DEPTH_1PRINCIPAL_1POINT_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_DEPTH_FOCAL_LENGTH;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_DEPTH_PRINCIPAL_POINT;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1DEPTH_1PRINCIPAL_1POINT_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1DEVICE_1ALLOW_1PROFILE_1CHANGE_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_DEPTH_PRINCIPAL_POINT;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_DEVICE_ALLOW_PROFILE_CHANGE;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1DEVICE_1ALLOW_1PROFILE_1CHANGE_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1DEVICE_1MIRROR_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_DEVICE_ALLOW_PROFILE_CHANGE;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_DEVICE_MIRROR;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1DEVICE_1MIRROR_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1PROJECTION_1SERIALIZABLE_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_DEVICE_MIRROR;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_PROJECTION_SERIALIZABLE;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1PROJECTION_1SERIALIZABLE_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1IVCAM_1LASER_1POWER_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_PROJECTION_SERIALIZABLE;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_IVCAM_LASER_POWER;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1IVCAM_1LASER_1POWER_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1IVCAM_1ACCURACY_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_IVCAM_LASER_POWER;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_IVCAM_ACCURACY;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1IVCAM_1ACCURACY_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1IVCAM_1FILTER_1OPTION_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_IVCAM_ACCURACY;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_IVCAM_FILTER_OPTION;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1IVCAM_1FILTER_1OPTION_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1IVCAM_1MOTION_1RANGE_1TRADE_1OFF_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_IVCAM_FILTER_OPTION;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_IVCAM_MOTION_RANGE_TRADE_OFF;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1IVCAM_1MOTION_1RANGE_1TRADE_1OFF_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1PROPERTY_1CUSTOMIZED_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_IVCAM_MOTION_RANGE_TRADE_OFF;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1PROPERTY_1CUSTOMIZED_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  PXCCapture::Device::Property result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (PXCCapture::Device::Property)PXCCapture::Device::PROPERTY_CUSTOMIZED;
+  result = (PXCCapture::Property)PXCCapture::PROPERTY_CUSTOMIZED;
   jresult = (jint)result; 
   return jresult;
 }
@@ -4574,13 +4490,13 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_
 SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1QueryColorPowerLineFrequency(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   PXCCapture::Device *arg1 = (PXCCapture::Device *) 0 ;
-  PXCCapture::Device::PowerLineFrequency result;
+  PXCCapture::PowerLineFrequency result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCCapture::Device **)&jarg1; 
-  result = (PXCCapture::Device::PowerLineFrequency)(arg1)->QueryColorPowerLineFrequency();
+  result = (PXCCapture::PowerLineFrequency)(arg1)->QueryColorPowerLineFrequency();
   jresult = (jint)result; 
   return jresult;
 }
@@ -4589,14 +4505,14 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_
 SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1SetColorPowerLineFrequency(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   PXCCapture::Device *arg1 = (PXCCapture::Device *) 0 ;
-  PXCCapture::Device::PowerLineFrequency arg2 ;
+  PXCCapture::PowerLineFrequency arg2 ;
   pxcStatus result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCCapture::Device **)&jarg1; 
-  arg2 = (PXCCapture::Device::PowerLineFrequency)jarg2; 
+  arg2 = (PXCCapture::PowerLineFrequency)jarg2; 
   result = (pxcStatus)(arg1)->SetColorPowerLineFrequency(arg2);
   jresult = (jint)result; 
   return jresult;
@@ -4850,13 +4766,13 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_
 SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1QueryMirrorMode(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   PXCCapture::Device *arg1 = (PXCCapture::Device *) 0 ;
-  PXCCapture::Device::MirrorMode result;
+  PXCCapture::MirrorMode result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCCapture::Device **)&jarg1; 
-  result = (PXCCapture::Device::MirrorMode)(arg1)->QueryMirrorMode();
+  result = (PXCCapture::MirrorMode)(arg1)->QueryMirrorMode();
   jresult = (jint)result; 
   return jresult;
 }
@@ -4865,14 +4781,14 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_
 SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1SetMirrorMode(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   PXCCapture::Device *arg1 = (PXCCapture::Device *) 0 ;
-  PXCCapture::Device::MirrorMode arg2 ;
+  PXCCapture::MirrorMode arg2 ;
   pxcStatus result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCCapture::Device **)&jarg1; 
-  arg2 = (PXCCapture::Device::MirrorMode)jarg2; 
+  arg2 = (PXCCapture::MirrorMode)jarg2; 
   result = (pxcStatus)(arg1)->SetMirrorMode(arg2);
   jresult = (jint)result; 
   return jresult;
@@ -4929,13 +4845,13 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_
 SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1QueryIVCAMAccuracy(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   PXCCapture::Device *arg1 = (PXCCapture::Device *) 0 ;
-  PXCCapture::Device::IVCAMAccuracy result;
+  PXCCapture::IVCAMAccuracy result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCCapture::Device **)&jarg1; 
-  result = (PXCCapture::Device::IVCAMAccuracy)(arg1)->QueryIVCAMAccuracy();
+  result = (PXCCapture::IVCAMAccuracy)(arg1)->QueryIVCAMAccuracy();
   jresult = (jint)result; 
   return jresult;
 }
@@ -4944,14 +4860,14 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_
 SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1Device_1SetIVCAMAccuracy(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   PXCCapture::Device *arg1 = (PXCCapture::Device *) 0 ;
-  PXCCapture::Device::IVCAMAccuracy arg2 ;
+  PXCCapture::IVCAMAccuracy arg2 ;
   pxcStatus result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCCapture::Device **)&jarg1; 
-  arg2 = (PXCCapture::Device::IVCAMAccuracy)jarg2; 
+  arg2 = (PXCCapture::IVCAMAccuracy)jarg2; 
   result = (pxcStatus)(arg1)->SetIVCAMAccuracy(arg2);
   jresult = (jint)result; 
   return jresult;
@@ -5047,18 +4963,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_
   arg1 = *(PXCCapture::Device **)&jarg1; 
   arg2 = (pxcI32)jarg2; 
   result = (pxcStatus)(arg1)->SetIVCAMMotionRangeTradeOff(arg2);
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCaptureManager_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCCaptureManager::CUID;
   jresult = (jint)result; 
   return jresult;
 }
@@ -5472,18 +5376,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCaptureM
   (void)jarg1_;
   arg1 = *(PXCCaptureManager **)&jarg1; 
   result = (pxcI32)(arg1)->QueryNumberOfFrames();
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCEmotion_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCEmotion::CUID;
   jresult = (jint)result; 
   return jresult;
 }
@@ -5934,18 +5826,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCEmotion_
   arg2 = (pxcI32)jarg2; 
   arg3 = *(PXCEmotion::EmotionData **)&jarg3; 
   result = (pxcStatus)(arg1)->QueryAllEmotionData(arg2,arg3);
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConfiguration_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCFaceConfiguration::CUID;
   jresult = (jint)result; 
   return jresult;
 }
@@ -6649,18 +6529,6 @@ SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_delete_1PXC
   (void)jcls;
   arg1 = *(PXCFaceConfiguration::ExpressionsConfiguration **)&jarg1; 
   delete arg1;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConfiguration_1RecognitionConfiguration_1STORAGE_1NAME_1SIZE_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCFaceConfiguration::RecognitionConfiguration::STORAGE_NAME_SIZE;
-  jresult = (jint)result; 
-  return jresult;
 }
 
 
@@ -7503,18 +7371,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConf
   (void)jarg1_;
   arg1 = *(PXCFaceConfiguration **)&jarg1; 
   result = (pxcStatus)(arg1)->Update();
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceData_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCFaceData::CUID;
   jresult = (jint)result; 
   return jresult;
 }
@@ -8529,18 +8385,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceData
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceData_1ExpressionsData_1EXPRESSION_1BROW_1RAISER_1LEFT_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  PXCFaceData::ExpressionsData::FaceExpression result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (PXCFaceData::ExpressionsData::FaceExpression)PXCFaceData::ExpressionsData::EXPRESSION_BROW_RAISER_LEFT;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceData_1ExpressionsData_1FaceExpressionResult_1intensity_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   PXCFaceData::ExpressionsData::FaceExpressionResult *arg1 = (PXCFaceData::ExpressionsData::FaceExpressionResult *) 0 ;
   pxcI32 arg2 ;
@@ -8933,18 +8777,6 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceDat
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceData_1AlertData_1ALERT_1NEW_1FACE_1DETECTED_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  PXCFaceData::AlertData::AlertType result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (PXCFaceData::AlertData::AlertType)PXCFaceData::AlertData::ALERT_NEW_FACE_DETECTED;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceData_1AlertData_1label_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   PXCFaceData::AlertData *arg1 = (PXCFaceData::AlertData *) 0 ;
   PXCFaceData::AlertData::AlertType arg2 ;
@@ -9198,18 +9030,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceData
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceModule_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCFaceModule::CUID;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceModule_1CreateActiveConfiguration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   PXCFaceModule *arg1 = (PXCFaceModule *) 0 ;
@@ -9236,18 +9056,6 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceMod
   arg1 = *(PXCFaceModule **)&jarg1; 
   result = (PXCFaceData *)(arg1)->CreateOutput();
   *(PXCFaceData **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCHandConfiguration::CUID;
-  jresult = (jint)result; 
   return jresult;
 }
 
@@ -10042,18 +9850,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConf
   arg1 = *(PXCHandConfiguration **)&jarg1; 
   arg2 = *(PXCHandConfiguration::GestureHandler **)&jarg2; 
   result = (pxcStatus)(arg1)->UnsubscribeGesture(arg2);
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCHandData::CUID;
   jresult = (jint)result; 
   return jresult;
 }
@@ -11676,18 +11472,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandModule_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCHandModule::CUID;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandModule_1CreateActiveConfiguration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   PXCHandModule *arg1 = (PXCHandModule *) 0 ;
@@ -11714,18 +11498,6 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandMod
   arg1 = *(PXCHandModule **)&jarg1; 
   result = (PXCHandData *)(arg1)->CreateOutput();
   *(PXCHandData **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCImage_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCImage::CUID;
-  jresult = (jint)result; 
   return jresult;
 }
 
@@ -12465,18 +12237,6 @@ SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCImage_1A
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCMetadata_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCMetadata::CUID;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCMetadata_1QueryUID(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   PXCMetadata *arg1 = (PXCMetadata *) 0 ;
@@ -12626,18 +12386,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCMetadata
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCPowerState_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCPowerState::CUID;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCPowerState_1QueryState(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   PXCPowerState *arg1 = (PXCPowerState *) 0 ;
@@ -12665,18 +12413,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCPowerSta
   arg1 = *(PXCPowerState **)&jarg1; 
   arg2 = (PXCPowerState::State)jarg2; 
   result = (pxcStatus)(arg1)->SetState(arg2);
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCProjection_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCProjection::CUID;
   jresult = (jint)result; 
   return jresult;
 }
@@ -12924,18 +12660,6 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCProject
   arg3 = *(PXCImage **)&jarg3; 
   result = (PXCImage *)(arg1)->CreateDepthImageMappedToColor(arg2,arg3);
   *(PXCImage **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseManager_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCSenseManager::CUID;
-  jresult = (jint)result; 
   return jresult;
 }
 
@@ -13854,18 +13578,6 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSession
   (void)jcls;
   result = (PXCSession *)PXCSession_Create();
   *(PXCSession **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSession_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCSession::CUID;
-  jresult = (jint)result; 
   return jresult;
 }
 
@@ -14811,18 +14523,6 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSession
   (void)jcls;
   result = (PXCSession *)PXCSession::CreateInstance();
   *(PXCSession **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechRecognition_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCSpeechRecognition::CUID;
-  jresult = (jint)result; 
   return jresult;
 }
 
@@ -16054,18 +15754,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechRe
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechSynthesis_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCSpeechSynthesis::CUID;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechSynthesis_1LANGUAGE_1US_1ENGLISH_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   PXCSpeechSynthesis::LanguageType result;
@@ -16915,18 +16603,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXC_1STATUS
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSyncPoint_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCSyncPoint::CUID;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSyncPoint_1TIMEOUT_1INFINITE_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
@@ -17075,145 +16751,133 @@ SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSyncPoin
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1CUID_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1Configuration_1None_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
   (void)jenv;
   (void)jcls;
-  result = (int)PXCTouchlessController::CUID;
+  result = (int)PXCTouchlessController::Configuration_None;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1ProfileInfo_1Configuration_1None_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1Configuration_1Allow_1Zoom_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
   (void)jenv;
   (void)jcls;
-  result = (int)PXCTouchlessController::ProfileInfo::Configuration_None;
+  result = (int)PXCTouchlessController::Configuration_Allow_Zoom;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1ProfileInfo_1Configuration_1Allow_1Zoom_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1Configuration_1Use_1Draw_1Mode_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
   (void)jenv;
   (void)jcls;
-  result = (int)PXCTouchlessController::ProfileInfo::Configuration_Allow_Zoom;
+  result = (int)PXCTouchlessController::Configuration_Use_Draw_Mode;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1ProfileInfo_1Configuration_1Use_1Draw_1Mode_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1Configuration_1Scroll_1Horizontally_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
   (void)jenv;
   (void)jcls;
-  result = (int)PXCTouchlessController::ProfileInfo::Configuration_Use_Draw_Mode;
+  result = (int)PXCTouchlessController::Configuration_Scroll_Horizontally;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1ProfileInfo_1Configuration_1Scroll_1Horizontally_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1Configuration_1Scroll_1Vertically_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
   (void)jenv;
   (void)jcls;
-  result = (int)PXCTouchlessController::ProfileInfo::Configuration_Scroll_Horizontally;
+  result = (int)PXCTouchlessController::Configuration_Scroll_Vertically;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1ProfileInfo_1Configuration_1Scroll_1Vertically_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1Configuration_1Meta_1Context_1Menu_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
   (void)jenv;
   (void)jcls;
-  result = (int)PXCTouchlessController::ProfileInfo::Configuration_Scroll_Vertically;
+  result = (int)PXCTouchlessController::Configuration_Meta_Context_Menu;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1ProfileInfo_1Configuration_1Meta_1Context_1Menu_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1Configuration_1Enable_1Injection_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
   (void)jenv;
   (void)jcls;
-  result = (int)PXCTouchlessController::ProfileInfo::Configuration_Meta_Context_Menu;
+  result = (int)PXCTouchlessController::Configuration_Enable_Injection;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1ProfileInfo_1Configuration_1Enable_1Injection_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1Configuration_1Edge_1Scroll_1Horizontally_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
   (void)jenv;
   (void)jcls;
-  result = (int)PXCTouchlessController::ProfileInfo::Configuration_Enable_Injection;
+  result = (int)PXCTouchlessController::Configuration_Edge_Scroll_Horizontally;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1ProfileInfo_1Configuration_1Edge_1Scroll_1Horizontally_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1Configuration_1Edge_1Scroll_1Vertically_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
   (void)jenv;
   (void)jcls;
-  result = (int)PXCTouchlessController::ProfileInfo::Configuration_Edge_Scroll_Horizontally;
+  result = (int)PXCTouchlessController::Configuration_Edge_Scroll_Vertically;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1ProfileInfo_1Configuration_1Edge_1Scroll_1Vertically_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1Configuration_1Hide_1Cursor_1After_1Touch_1Injection_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
   (void)jenv;
   (void)jcls;
-  result = (int)PXCTouchlessController::ProfileInfo::Configuration_Edge_Scroll_Vertically;
+  result = (int)PXCTouchlessController::Configuration_Hide_Cursor_After_Touch_Injection;
   jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1ProfileInfo_1Configuration_1Hide_1Cursor_1After_1Touch_1Injection_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1Configuration_1Allow_1Back_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
   (void)jenv;
   (void)jcls;
-  result = (int)PXCTouchlessController::ProfileInfo::Configuration_Hide_Cursor_After_Touch_Injection;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1ProfileInfo_1Configuration_1Allow_1Back_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCTouchlessController::ProfileInfo::Configuration_Allow_Back;
+  result = (int)PXCTouchlessController::Configuration_Allow_Back;
   jresult = (jint)result; 
   return jresult;
 }
@@ -17697,18 +17361,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchles
   (void)jarg1_;
   arg1 = *(PXCTouchlessController **)&jarg1; 
   result = (pxcStatus)(arg1)->ClearAllGestureActionMappings();
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCTracker::CUID;
   jresult = (jint)result; 
   return jresult;
 }
@@ -18451,18 +18103,6 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXC_1VERSIO
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCVideoModule_1CUID_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (int)PXCVideoModule::CUID;
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCVideoModule_1DEVCAP_1LIMIT_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
@@ -18477,13 +18117,13 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCVideoMod
 
 SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCVideoModule_1DeviceCap_1label_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   PXCVideoModule::DeviceCap *arg1 = (PXCVideoModule::DeviceCap *) 0 ;
-  PXCCapture::Device::Property arg2 ;
+  PXCCapture::Property arg2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCVideoModule::DeviceCap **)&jarg1; 
-  arg2 = (PXCCapture::Device::Property)jarg2; 
+  arg2 = (PXCCapture::Property)jarg2; 
   if (arg1) (arg1)->label = arg2;
 }
 
@@ -18491,13 +18131,13 @@ SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCVideoMod
 SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCVideoModule_1DeviceCap_1label_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   PXCVideoModule::DeviceCap *arg1 = (PXCVideoModule::DeviceCap *) 0 ;
-  PXCCapture::Device::Property result;
+  PXCCapture::Property result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCVideoModule::DeviceCap **)&jarg1; 
-  result = (PXCCapture::Device::Property) ((arg1)->label);
+  result = (PXCCapture::Property) ((arg1)->label);
   jresult = (jint)result; 
   return jresult;
 }

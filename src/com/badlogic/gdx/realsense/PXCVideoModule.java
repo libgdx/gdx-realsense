@@ -58,12 +58,12 @@ public class PXCVideoModule extends PXCBase {
       }
     }
   
-    public void setLabel(PXCCapture.Device.Property value) {
+    public void setLabel(PXCCapture.Property value) {
       realsenseJNI.PXCVideoModule_DeviceCap_label_set(swigCPtr, this, value.swigValue());
     }
   
-    public PXCCapture.Device.Property getLabel() {
-      return PXCCapture.Device.Property.swigToEnum(realsenseJNI.PXCVideoModule_DeviceCap_label_get(swigCPtr, this));
+    public PXCCapture.Property getLabel() {
+      return PXCCapture.Property.swigToEnum(realsenseJNI.PXCVideoModule_DeviceCap_label_get(swigCPtr, this));
     }
   
     public void setValue(float value) {
@@ -320,8 +320,6 @@ public class PXCVideoModule extends PXCBase {
   public pxcStatus ProcessImageAsync(PXCCapture.Sample sample, SWIGTYPE_p_p_PXCSyncPoint sp) {
     return pxcStatus.swigToEnum(realsenseJNI.PXCVideoModule_ProcessImageAsync(swigCPtr, this, PXCCapture.Sample.getCPtr(sample), sample, SWIGTYPE_p_p_PXCSyncPoint.getCPtr(sp)));
   }
-
-  public final static int CUID = realsenseJNI.PXCVideoModule_CUID_get();
 
   public final static int DEVCAP_LIMIT = realsenseJNI.PXCVideoModule_DEVCAP_LIMIT_get();
 

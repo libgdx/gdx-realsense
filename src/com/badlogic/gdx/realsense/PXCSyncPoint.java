@@ -59,8 +59,6 @@ public class PXCSyncPoint extends PXCBase {
     realsenseJNI.PXCSyncPoint_ReleaseSP(SWIGTYPE_p_p_PXCSyncPoint.getCPtr(objects), startIndex, nitems);
   }
 
-  public final static int CUID = realsenseJNI.PXCSyncPoint_CUID_get();
-
   public final static int TIMEOUT_INFINITE = realsenseJNI.PXCSyncPoint_TIMEOUT_INFINITE_get();
 
   public final static int SYNCEX_LIMIT = realsenseJNI.PXCSyncPoint_SYNCEX_LIMIT_get();

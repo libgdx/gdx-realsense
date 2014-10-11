@@ -204,7 +204,11 @@ public:
 	public:
 		enum FaceExpression
 		{
+#ifdef SWIG
+			EXPRESSION_BROW_RAISER_LEFT,
+#else
 			EXPRESSION_BROW_RAISER_LEFT = 0,
+#endif
 			EXPRESSION_BROW_RAISER_RIGHT,   
 			EXPRESSION_BROW_LOWERER_LEFT,   
 			EXPRESSION_BROW_LOWERER_RIGHT,  
@@ -381,7 +385,12 @@ public:
  		*/
  		enum AlertType
 		{    
+#ifdef SWIG
+			UNUSED,
+			ALERT_NEW_FACE_DETECTED,
+#else
  			ALERT_NEW_FACE_DETECTED = 1,	//  a new face enters the FOV and its position and bounding rectangle is available. 
+#endif
 			ALERT_FACE_OUT_OF_FOV,			//  a new face is out of field of view (even slightly). 
 			ALERT_FACE_BACK_TO_FOV,			//  a tracked face is back fully to field of view. 
 			ALERT_FACE_OCCLUDED,			//  face is occluded by any object or hand (even slightly).

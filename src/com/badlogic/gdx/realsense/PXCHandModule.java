@@ -41,6 +41,4 @@ public class PXCHandModule extends PXCBase {
     return (cPtr == 0) ? null : new PXCHandData(cPtr, false);
   }
 
-  public final static int CUID = realsenseJNI.PXCHandModule_CUID_get();
-
 }

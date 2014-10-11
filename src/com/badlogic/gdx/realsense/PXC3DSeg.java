@@ -36,6 +36,4 @@ public class PXC3DSeg extends PXCBase {
     return (cPtr == 0) ? null : new PXCImage(cPtr, false);
   }
 
-  public final static int CUID = realsenseJNI.PXC3DSeg_CUID_get();
-
 }

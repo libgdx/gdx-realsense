@@ -301,8 +301,6 @@ public class PXCSenseManager extends PXCBase {
     return (cPtr == 0) ? null : new PXCSenseManager(cPtr, false);
   }
 
-  public final static int CUID = realsenseJNI.PXCSenseManager_CUID_get();
-
   public final static int TIMEOUT_INFINITE = realsenseJNI.PXCSenseManager_TIMEOUT_INFINITE_get();
 
 }

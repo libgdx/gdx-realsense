@@ -35,6 +35,4 @@ public class PXCAddRef {
     return realsenseJNI.PXCAddRef_AddRef(swigCPtr, this);
   }
 
-  public final static int CUID = realsenseJNI.PXCAddRef_CUID_get();
-
 }

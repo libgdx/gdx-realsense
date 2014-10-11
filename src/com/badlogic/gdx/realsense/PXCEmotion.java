@@ -146,8 +146,6 @@ public class PXCEmotion extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCEmotion_QueryAllEmotionData(swigCPtr, this, arg0, PXCEmotion.EmotionData.getCPtr(arg1), arg1));
   }
 
-  public final static int CUID = realsenseJNI.PXCEmotion_CUID_get();
-
   public final static class Emotion {
     public final static PXCEmotion.Emotion EMOTION_PRIMARY_ANGER = new PXCEmotion.Emotion("EMOTION_PRIMARY_ANGER", realsenseJNI.PXCEmotion_EMOTION_PRIMARY_ANGER_get());
     public final static PXCEmotion.Emotion EMOTION_PRIMARY_CONTEMPT = new PXCEmotion.Emotion("EMOTION_PRIMARY_CONTEMPT", realsenseJNI.PXCEmotion_EMOTION_PRIMARY_CONTEMPT_get());

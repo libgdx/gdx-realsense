@@ -237,8 +237,6 @@ public class PXCImage extends PXCBase {
     realsenseJNI.PXCImage_AddRef(swigCPtr, this);
   }
 
-  public final static int CUID = realsenseJNI.PXCImage_CUID_get();
-
   public final static int NUM_OF_PLANES = realsenseJNI.PXCImage_NUM_OF_PLANES_get();
 
   public final static int METADATA_DEVICE_PROPERTIES = realsenseJNI.PXCImage_METADATA_DEVICE_PROPERTIES_get();

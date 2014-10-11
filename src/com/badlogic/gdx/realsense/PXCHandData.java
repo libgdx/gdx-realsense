@@ -509,8 +509,6 @@ public class PXCHandData extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCHandData_QueryHandDataById(swigCPtr, this, handID, SWIGTYPE_p_p_PXCHandData__IHand.getCPtr(handData)));
   }
 
-  public final static int CUID = realsenseJNI.PXCHandData_CUID_get();
-
   public final static int NUMBER_OF_FINGERS = realsenseJNI.PXCHandData_NUMBER_OF_FINGERS_get();
 
   public final static int NUMBER_OF_EXTREMITIES = realsenseJNI.PXCHandData_NUMBER_OF_EXTREMITIES_get();

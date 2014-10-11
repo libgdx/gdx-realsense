@@ -23,7 +23,7 @@ public:
         Use the inline functions to access specific device properties.
     */
     struct DeviceCap {
-        PXCCapture::Device::Property   label;       /* Property type */
+        PXCCapture::Property   label;       /* Property type */
         pxcF32                         value;       /* Property value */
     };
 

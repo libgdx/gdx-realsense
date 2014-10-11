@@ -39,8 +39,6 @@ public class PXCPowerState extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCPowerState_SetState(swigCPtr, this, state.swigValue()));
   }
 
-  public final static int CUID = realsenseJNI.PXCPowerState_CUID_get();
-
   public final static class State {
     public final static PXCPowerState.State STATE_PERFORMANCE = new PXCPowerState.State("STATE_PERFORMANCE");
     public final static PXCPowerState.State STATE_BATTERY = new PXCPowerState.State("STATE_BATTERY");

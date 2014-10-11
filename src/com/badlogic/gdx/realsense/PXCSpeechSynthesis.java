@@ -163,8 +163,6 @@ public class PXCSpeechSynthesis extends PXCBase {
     realsenseJNI.PXCSpeechSynthesis_ReleaseSentence(swigCPtr, this, sid);
   }
 
-  public final static int CUID = realsenseJNI.PXCSpeechSynthesis_CUID_get();
-
   public final static class LanguageType {
     public final static PXCSpeechSynthesis.LanguageType LANGUAGE_US_ENGLISH = new PXCSpeechSynthesis.LanguageType("LANGUAGE_US_ENGLISH", realsenseJNI.PXCSpeechSynthesis_LANGUAGE_US_ENGLISH_get());
     public final static PXCSpeechSynthesis.LanguageType LANGUAGE_GB_ENGLISH = new PXCSpeechSynthesis.LanguageType("LANGUAGE_GB_ENGLISH", realsenseJNI.PXCSpeechSynthesis_LANGUAGE_GB_ENGLISH_get());

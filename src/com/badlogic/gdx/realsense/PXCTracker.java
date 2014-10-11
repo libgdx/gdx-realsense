@@ -202,8 +202,6 @@ public class PXCTracker extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCTracker_QueryTrackingValues(swigCPtr, this, cosID, PXCTracker.TrackingValues.getCPtr(outTrackingValues), outTrackingValues));
   }
 
-  public final static int CUID = realsenseJNI.PXCTracker_CUID_get();
-
   public final static class ETrackingState {
     public final static PXCTracker.ETrackingState ETS_UNKNOWN = new PXCTracker.ETrackingState("ETS_UNKNOWN", realsenseJNI.PXCTracker_ETS_UNKNOWN_get());
     public final static PXCTracker.ETrackingState ETS_NOT_TRACKING = new PXCTracker.ETrackingState("ETS_NOT_TRACKING", realsenseJNI.PXCTracker_ETS_NOT_TRACKING_get());

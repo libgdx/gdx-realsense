@@ -79,18 +79,6 @@ public class PXCTouchlessController extends PXCBase {
       this(realsenseJNI.new_PXCTouchlessController_ProfileInfo(), true);
     }
   
-    public final static int Configuration_None = realsenseJNI.ProfileInfo_Configuration_None_get();
-    public final static int Configuration_Allow_Zoom = realsenseJNI.ProfileInfo_Configuration_Allow_Zoom_get();
-    public final static int Configuration_Use_Draw_Mode = realsenseJNI.ProfileInfo_Configuration_Use_Draw_Mode_get();
-    public final static int Configuration_Scroll_Horizontally = realsenseJNI.ProfileInfo_Configuration_Scroll_Horizontally_get();
-    public final static int Configuration_Scroll_Vertically = realsenseJNI.ProfileInfo_Configuration_Scroll_Vertically_get();
-    public final static int Configuration_Meta_Context_Menu = realsenseJNI.ProfileInfo_Configuration_Meta_Context_Menu_get();
-    public final static int Configuration_Enable_Injection = realsenseJNI.ProfileInfo_Configuration_Enable_Injection_get();
-    public final static int Configuration_Edge_Scroll_Horizontally = realsenseJNI.ProfileInfo_Configuration_Edge_Scroll_Horizontally_get();
-    public final static int Configuration_Edge_Scroll_Vertically = realsenseJNI.ProfileInfo_Configuration_Edge_Scroll_Vertically_get();
-    public final static int Configuration_Hide_Cursor_After_Touch_Injection = realsenseJNI.ProfileInfo_Configuration_Hide_Cursor_After_Touch_Injection_get();
-    public final static int Configuration_Allow_Back = realsenseJNI.ProfileInfo_Configuration_Allow_Back_get();
-  
   }
 
   public pxcStatus QueryProfile(PXCTouchlessController.ProfileInfo pinfo) {
@@ -436,7 +424,17 @@ public class PXCTouchlessController extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCTouchlessController_ClearAllGestureActionMappings(swigCPtr, this));
   }
 
-  public final static int CUID = realsenseJNI.PXCTouchlessController_CUID_get();
+  public final static int Configuration_None = realsenseJNI.PXCTouchlessController_Configuration_None_get();
+  public final static int Configuration_Allow_Zoom = realsenseJNI.PXCTouchlessController_Configuration_Allow_Zoom_get();
+  public final static int Configuration_Use_Draw_Mode = realsenseJNI.PXCTouchlessController_Configuration_Use_Draw_Mode_get();
+  public final static int Configuration_Scroll_Horizontally = realsenseJNI.PXCTouchlessController_Configuration_Scroll_Horizontally_get();
+  public final static int Configuration_Scroll_Vertically = realsenseJNI.PXCTouchlessController_Configuration_Scroll_Vertically_get();
+  public final static int Configuration_Meta_Context_Menu = realsenseJNI.PXCTouchlessController_Configuration_Meta_Context_Menu_get();
+  public final static int Configuration_Enable_Injection = realsenseJNI.PXCTouchlessController_Configuration_Enable_Injection_get();
+  public final static int Configuration_Edge_Scroll_Horizontally = realsenseJNI.PXCTouchlessController_Configuration_Edge_Scroll_Horizontally_get();
+  public final static int Configuration_Edge_Scroll_Vertically = realsenseJNI.PXCTouchlessController_Configuration_Edge_Scroll_Vertically_get();
+  public final static int Configuration_Hide_Cursor_After_Touch_Injection = realsenseJNI.PXCTouchlessController_Configuration_Hide_Cursor_After_Touch_Injection_get();
+  public final static int Configuration_Allow_Back = realsenseJNI.PXCTouchlessController_Configuration_Allow_Back_get();
 
   public final static class Action {
     public final static PXCTouchlessController.Action Action_None = new PXCTouchlessController.Action("Action_None", realsenseJNI.PXCTouchlessController_Action_None_get());

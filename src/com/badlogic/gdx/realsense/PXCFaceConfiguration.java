@@ -622,8 +622,6 @@ public class PXCFaceConfiguration extends PXCBase {
       private final String swigName;
     }
   
-    public final static int STORAGE_NAME_SIZE = realsenseJNI.RecognitionConfiguration_STORAGE_NAME_SIZE_get();
-  
   }
 
   public void setDetection(PXCFaceConfiguration.DetectionConfiguration value) {
@@ -751,8 +749,6 @@ public class PXCFaceConfiguration extends PXCBase {
   public pxcStatus Update() {
     return pxcStatus.swigToEnum(realsenseJNI.PXCFaceConfiguration_Update(swigCPtr, this));
   }
-
-  public final static int CUID = realsenseJNI.PXCFaceConfiguration_CUID_get();
 
   public final static class TrackingStrategyType {
     public final static PXCFaceConfiguration.TrackingStrategyType STRATEGY_APPEARANCE_TIME = new PXCFaceConfiguration.TrackingStrategyType("STRATEGY_APPEARANCE_TIME");

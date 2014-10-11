@@ -566,7 +566,7 @@ public class PXCFaceData extends PXCBase {
     }
   
     public final static class FaceExpression {
-      public final static PXCFaceData.ExpressionsData.FaceExpression EXPRESSION_BROW_RAISER_LEFT = new PXCFaceData.ExpressionsData.FaceExpression("EXPRESSION_BROW_RAISER_LEFT", realsenseJNI.ExpressionsData_EXPRESSION_BROW_RAISER_LEFT_get());
+      public final static PXCFaceData.ExpressionsData.FaceExpression EXPRESSION_BROW_RAISER_LEFT = new PXCFaceData.ExpressionsData.FaceExpression("EXPRESSION_BROW_RAISER_LEFT");
       public final static PXCFaceData.ExpressionsData.FaceExpression EXPRESSION_BROW_RAISER_RIGHT = new PXCFaceData.ExpressionsData.FaceExpression("EXPRESSION_BROW_RAISER_RIGHT");
       public final static PXCFaceData.ExpressionsData.FaceExpression EXPRESSION_BROW_LOWERER_LEFT = new PXCFaceData.ExpressionsData.FaceExpression("EXPRESSION_BROW_LOWERER_LEFT");
       public final static PXCFaceData.ExpressionsData.FaceExpression EXPRESSION_BROW_LOWERER_RIGHT = new PXCFaceData.ExpressionsData.FaceExpression("EXPRESSION_BROW_LOWERER_RIGHT");
@@ -853,7 +853,8 @@ public class PXCFaceData extends PXCBase {
     }
   
     public final static class AlertType {
-      public final static PXCFaceData.AlertData.AlertType ALERT_NEW_FACE_DETECTED = new PXCFaceData.AlertData.AlertType("ALERT_NEW_FACE_DETECTED", realsenseJNI.AlertData_ALERT_NEW_FACE_DETECTED_get());
+      public final static PXCFaceData.AlertData.AlertType UNUSED = new PXCFaceData.AlertData.AlertType("UNUSED");
+      public final static PXCFaceData.AlertData.AlertType ALERT_NEW_FACE_DETECTED = new PXCFaceData.AlertData.AlertType("ALERT_NEW_FACE_DETECTED");
       public final static PXCFaceData.AlertData.AlertType ALERT_FACE_OUT_OF_FOV = new PXCFaceData.AlertData.AlertType("ALERT_FACE_OUT_OF_FOV");
       public final static PXCFaceData.AlertData.AlertType ALERT_FACE_BACK_TO_FOV = new PXCFaceData.AlertData.AlertType("ALERT_FACE_BACK_TO_FOV");
       public final static PXCFaceData.AlertData.AlertType ALERT_FACE_OCCLUDED = new PXCFaceData.AlertData.AlertType("ALERT_FACE_OCCLUDED");
@@ -894,7 +895,7 @@ public class PXCFaceData extends PXCBase {
         swigNext = this.swigValue+1;
       }
   
-      private static AlertType[] swigValues = { ALERT_NEW_FACE_DETECTED, ALERT_FACE_OUT_OF_FOV, ALERT_FACE_BACK_TO_FOV, ALERT_FACE_OCCLUDED, ALERT_FACE_NO_LONGER_OCCLUDED, ALERT_FACE_LOST };
+      private static AlertType[] swigValues = { UNUSED, ALERT_NEW_FACE_DETECTED, ALERT_FACE_OUT_OF_FOV, ALERT_FACE_BACK_TO_FOV, ALERT_FACE_OCCLUDED, ALERT_FACE_NO_LONGER_OCCLUDED, ALERT_FACE_LOST };
       private static int swigNext = 0;
       private final int swigValue;
       private final String swigName;
@@ -921,8 +922,6 @@ public class PXCFaceData extends PXCBase {
   public int IsAlertFiredByFace(PXCFaceData.AlertData.AlertType alertEvent, int faceID, PXCFaceData.AlertData alertData) {
     return realsenseJNI.PXCFaceData_IsAlertFiredByFace(swigCPtr, this, alertEvent.swigValue(), faceID, PXCFaceData.AlertData.getCPtr(alertData), alertData);
   }
-
-  public final static int CUID = realsenseJNI.PXCFaceData_CUID_get();
 
   public final static class LandmarkType {
     public final static PXCFaceData.LandmarkType LANDMARK_NOT_NAMED = new PXCFaceData.LandmarkType("LANDMARK_NOT_NAMED", realsenseJNI.PXCFaceData_LANDMARK_NOT_NAMED_get());

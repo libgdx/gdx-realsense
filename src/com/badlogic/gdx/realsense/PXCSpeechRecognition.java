@@ -400,8 +400,6 @@ public class PXCSpeechRecognition extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCSpeechRecognition_AddVocabToDictation(swigCPtr, this, fileType.swigValue(), SWIGTYPE_p_wchar_t.getCPtr(vocabFileName)));
   }
 
-  public final static int CUID = realsenseJNI.PXCSpeechRecognition_CUID_get();
-
   public final static int NBEST_SIZE = realsenseJNI.PXCSpeechRecognition_NBEST_SIZE_get();
 
   public final static int SENTENCE_BUFFER_SIZE = realsenseJNI.PXCSpeechRecognition_SENTENCE_BUFFER_SIZE_get();

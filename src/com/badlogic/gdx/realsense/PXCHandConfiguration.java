@@ -270,6 +270,4 @@ public class PXCHandConfiguration extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_UnsubscribeGesture(swigCPtr, this, PXCHandConfiguration.GestureHandler.getCPtr(gestureHandler), gestureHandler));
   }
 
-  public final static int CUID = realsenseJNI.PXCHandConfiguration_CUID_get();
-
 }

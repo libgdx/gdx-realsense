@@ -693,11 +693,11 @@ public class PXCCapture extends PXCBase {
       return pxcStatus.swigToEnum(realsenseJNI.PXCCapture_Device_SetColorGain(swigCPtr, this, value));
     }
   
-    public PXCCapture.Device.PowerLineFrequency QueryColorPowerLineFrequency() {
-      return PXCCapture.Device.PowerLineFrequency.swigToEnum(realsenseJNI.PXCCapture_Device_QueryColorPowerLineFrequency(swigCPtr, this));
+    public PXCCapture.PowerLineFrequency QueryColorPowerLineFrequency() {
+      return PXCCapture.PowerLineFrequency.swigToEnum(realsenseJNI.PXCCapture_Device_QueryColorPowerLineFrequency(swigCPtr, this));
     }
   
-    public pxcStatus SetColorPowerLineFrequency(PXCCapture.Device.PowerLineFrequency value) {
+    public pxcStatus SetColorPowerLineFrequency(PXCCapture.PowerLineFrequency value) {
       return pxcStatus.swigToEnum(realsenseJNI.PXCCapture_Device_SetColorPowerLineFrequency(swigCPtr, this, value.swigValue()));
     }
   
@@ -765,11 +765,11 @@ public class PXCCapture extends PXCBase {
       return pxcStatus.swigToEnum(realsenseJNI.PXCCapture_Device_SetDeviceAllowProfileChange(swigCPtr, this, value));
     }
   
-    public PXCCapture.Device.MirrorMode QueryMirrorMode() {
-      return PXCCapture.Device.MirrorMode.swigToEnum(realsenseJNI.PXCCapture_Device_QueryMirrorMode(swigCPtr, this));
+    public PXCCapture.MirrorMode QueryMirrorMode() {
+      return PXCCapture.MirrorMode.swigToEnum(realsenseJNI.PXCCapture_Device_QueryMirrorMode(swigCPtr, this));
     }
   
-    public pxcStatus SetMirrorMode(PXCCapture.Device.MirrorMode value) {
+    public pxcStatus SetMirrorMode(PXCCapture.MirrorMode value) {
       return pxcStatus.swigToEnum(realsenseJNI.PXCCapture_Device_SetMirrorMode(swigCPtr, this, value.swigValue()));
     }
   
@@ -785,11 +785,11 @@ public class PXCCapture extends PXCBase {
       return pxcStatus.swigToEnum(realsenseJNI.PXCCapture_Device_SetIVCAMLaserPower(swigCPtr, this, value));
     }
   
-    public PXCCapture.Device.IVCAMAccuracy QueryIVCAMAccuracy() {
-      return PXCCapture.Device.IVCAMAccuracy.swigToEnum(realsenseJNI.PXCCapture_Device_QueryIVCAMAccuracy(swigCPtr, this));
+    public PXCCapture.IVCAMAccuracy QueryIVCAMAccuracy() {
+      return PXCCapture.IVCAMAccuracy.swigToEnum(realsenseJNI.PXCCapture_Device_QueryIVCAMAccuracy(swigCPtr, this));
     }
   
-    public pxcStatus SetIVCAMAccuracy(PXCCapture.Device.IVCAMAccuracy value) {
+    public pxcStatus SetIVCAMAccuracy(PXCCapture.IVCAMAccuracy value) {
       return pxcStatus.swigToEnum(realsenseJNI.PXCCapture_Device_SetIVCAMAccuracy(swigCPtr, this, value.swigValue()));
     }
   
@@ -817,218 +817,7 @@ public class PXCCapture extends PXCBase {
       return pxcStatus.swigToEnum(realsenseJNI.PXCCapture_Device_SetIVCAMMotionRangeTradeOff(swigCPtr, this, value));
     }
   
-    public final static int CUID = realsenseJNI.Device_CUID_get();
-  
-    public final static class PowerLineFrequency {
-      public final static PXCCapture.Device.PowerLineFrequency POWER_LINE_FREQUENCY_DISABLED = new PXCCapture.Device.PowerLineFrequency("POWER_LINE_FREQUENCY_DISABLED", realsenseJNI.Device_POWER_LINE_FREQUENCY_DISABLED_get());
-      public final static PXCCapture.Device.PowerLineFrequency POWER_LINE_FREQUENCY_50HZ = new PXCCapture.Device.PowerLineFrequency("POWER_LINE_FREQUENCY_50HZ", realsenseJNI.Device_POWER_LINE_FREQUENCY_50HZ_get());
-      public final static PXCCapture.Device.PowerLineFrequency POWER_LINE_FREQUENCY_60HZ = new PXCCapture.Device.PowerLineFrequency("POWER_LINE_FREQUENCY_60HZ", realsenseJNI.Device_POWER_LINE_FREQUENCY_60HZ_get());
-  
-      public final int swigValue() {
-        return swigValue;
-      }
-  
-      public String toString() {
-        return swigName;
-      }
-  
-      public static PowerLineFrequency swigToEnum(int swigValue) {
-        if (swigValue < swigValues.length && swigValue >= 0 && swigValues[swigValue].swigValue == swigValue)
-          return swigValues[swigValue];
-        for (int i = 0; i < swigValues.length; i++)
-          if (swigValues[i].swigValue == swigValue)
-            return swigValues[i];
-        throw new IllegalArgumentException("No enum " + PowerLineFrequency.class + " with value " + swigValue);
-      }
-  
-      private PowerLineFrequency(String swigName) {
-        this.swigName = swigName;
-        this.swigValue = swigNext++;
-      }
-  
-      private PowerLineFrequency(String swigName, int swigValue) {
-        this.swigName = swigName;
-        this.swigValue = swigValue;
-        swigNext = swigValue+1;
-      }
-  
-      private PowerLineFrequency(String swigName, PowerLineFrequency swigEnum) {
-        this.swigName = swigName;
-        this.swigValue = swigEnum.swigValue;
-        swigNext = this.swigValue+1;
-      }
-  
-      private static PowerLineFrequency[] swigValues = { POWER_LINE_FREQUENCY_DISABLED, POWER_LINE_FREQUENCY_50HZ, POWER_LINE_FREQUENCY_60HZ };
-      private static int swigNext = 0;
-      private final int swigValue;
-      private final String swigName;
-    }
-  
-    public final static class MirrorMode {
-      public final static PXCCapture.Device.MirrorMode MIRROR_MODE_DISABLED = new PXCCapture.Device.MirrorMode("MIRROR_MODE_DISABLED", realsenseJNI.Device_MIRROR_MODE_DISABLED_get());
-      public final static PXCCapture.Device.MirrorMode MIRROR_MODE_HORIZONTAL = new PXCCapture.Device.MirrorMode("MIRROR_MODE_HORIZONTAL", realsenseJNI.Device_MIRROR_MODE_HORIZONTAL_get());
-  
-      public final int swigValue() {
-        return swigValue;
-      }
-  
-      public String toString() {
-        return swigName;
-      }
-  
-      public static MirrorMode swigToEnum(int swigValue) {
-        if (swigValue < swigValues.length && swigValue >= 0 && swigValues[swigValue].swigValue == swigValue)
-          return swigValues[swigValue];
-        for (int i = 0; i < swigValues.length; i++)
-          if (swigValues[i].swigValue == swigValue)
-            return swigValues[i];
-        throw new IllegalArgumentException("No enum " + MirrorMode.class + " with value " + swigValue);
-      }
-  
-      private MirrorMode(String swigName) {
-        this.swigName = swigName;
-        this.swigValue = swigNext++;
-      }
-  
-      private MirrorMode(String swigName, int swigValue) {
-        this.swigName = swigName;
-        this.swigValue = swigValue;
-        swigNext = swigValue+1;
-      }
-  
-      private MirrorMode(String swigName, MirrorMode swigEnum) {
-        this.swigName = swigName;
-        this.swigValue = swigEnum.swigValue;
-        swigNext = this.swigValue+1;
-      }
-  
-      private static MirrorMode[] swigValues = { MIRROR_MODE_DISABLED, MIRROR_MODE_HORIZONTAL };
-      private static int swigNext = 0;
-      private final int swigValue;
-      private final String swigName;
-    }
-  
-    public final static class IVCAMAccuracy {
-      public final static PXCCapture.Device.IVCAMAccuracy IVCAM_ACCURACY_FINEST = new PXCCapture.Device.IVCAMAccuracy("IVCAM_ACCURACY_FINEST", realsenseJNI.Device_IVCAM_ACCURACY_FINEST_get());
-      public final static PXCCapture.Device.IVCAMAccuracy IVCAM_ACCURACY_MEDIAN = new PXCCapture.Device.IVCAMAccuracy("IVCAM_ACCURACY_MEDIAN", realsenseJNI.Device_IVCAM_ACCURACY_MEDIAN_get());
-      public final static PXCCapture.Device.IVCAMAccuracy IVCAM_ACCURACY_COARSE = new PXCCapture.Device.IVCAMAccuracy("IVCAM_ACCURACY_COARSE", realsenseJNI.Device_IVCAM_ACCURACY_COARSE_get());
-  
-      public final int swigValue() {
-        return swigValue;
-      }
-  
-      public String toString() {
-        return swigName;
-      }
-  
-      public static IVCAMAccuracy swigToEnum(int swigValue) {
-        if (swigValue < swigValues.length && swigValue >= 0 && swigValues[swigValue].swigValue == swigValue)
-          return swigValues[swigValue];
-        for (int i = 0; i < swigValues.length; i++)
-          if (swigValues[i].swigValue == swigValue)
-            return swigValues[i];
-        throw new IllegalArgumentException("No enum " + IVCAMAccuracy.class + " with value " + swigValue);
-      }
-  
-      private IVCAMAccuracy(String swigName) {
-        this.swigName = swigName;
-        this.swigValue = swigNext++;
-      }
-  
-      private IVCAMAccuracy(String swigName, int swigValue) {
-        this.swigName = swigName;
-        this.swigValue = swigValue;
-        swigNext = swigValue+1;
-      }
-  
-      private IVCAMAccuracy(String swigName, IVCAMAccuracy swigEnum) {
-        this.swigName = swigName;
-        this.swigValue = swigEnum.swigValue;
-        swigNext = this.swigValue+1;
-      }
-  
-      private static IVCAMAccuracy[] swigValues = { IVCAM_ACCURACY_FINEST, IVCAM_ACCURACY_MEDIAN, IVCAM_ACCURACY_COARSE };
-      private static int swigNext = 0;
-      private final int swigValue;
-      private final String swigName;
-    }
-  
-    public final static class Property {
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_EXPOSURE = new PXCCapture.Device.Property("PROPERTY_COLOR_EXPOSURE", realsenseJNI.Device_PROPERTY_COLOR_EXPOSURE_get());
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_BRIGHTNESS = new PXCCapture.Device.Property("PROPERTY_COLOR_BRIGHTNESS", realsenseJNI.Device_PROPERTY_COLOR_BRIGHTNESS_get());
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_CONTRAST = new PXCCapture.Device.Property("PROPERTY_COLOR_CONTRAST", realsenseJNI.Device_PROPERTY_COLOR_CONTRAST_get());
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_SATURATION = new PXCCapture.Device.Property("PROPERTY_COLOR_SATURATION", realsenseJNI.Device_PROPERTY_COLOR_SATURATION_get());
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_HUE = new PXCCapture.Device.Property("PROPERTY_COLOR_HUE", realsenseJNI.Device_PROPERTY_COLOR_HUE_get());
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_GAMMA = new PXCCapture.Device.Property("PROPERTY_COLOR_GAMMA", realsenseJNI.Device_PROPERTY_COLOR_GAMMA_get());
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_WHITE_BALANCE = new PXCCapture.Device.Property("PROPERTY_COLOR_WHITE_BALANCE", realsenseJNI.Device_PROPERTY_COLOR_WHITE_BALANCE_get());
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_SHARPNESS = new PXCCapture.Device.Property("PROPERTY_COLOR_SHARPNESS", realsenseJNI.Device_PROPERTY_COLOR_SHARPNESS_get());
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_BACK_LIGHT_COMPENSATION = new PXCCapture.Device.Property("PROPERTY_COLOR_BACK_LIGHT_COMPENSATION", realsenseJNI.Device_PROPERTY_COLOR_BACK_LIGHT_COMPENSATION_get());
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_GAIN = new PXCCapture.Device.Property("PROPERTY_COLOR_GAIN", realsenseJNI.Device_PROPERTY_COLOR_GAIN_get());
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_POWER_LINE_FREQUENCY = new PXCCapture.Device.Property("PROPERTY_COLOR_POWER_LINE_FREQUENCY", realsenseJNI.Device_PROPERTY_COLOR_POWER_LINE_FREQUENCY_get());
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_FOCAL_LENGTH_MM = new PXCCapture.Device.Property("PROPERTY_COLOR_FOCAL_LENGTH_MM", realsenseJNI.Device_PROPERTY_COLOR_FOCAL_LENGTH_MM_get());
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_FIELD_OF_VIEW = new PXCCapture.Device.Property("PROPERTY_COLOR_FIELD_OF_VIEW", realsenseJNI.Device_PROPERTY_COLOR_FIELD_OF_VIEW_get());
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_FOCAL_LENGTH = new PXCCapture.Device.Property("PROPERTY_COLOR_FOCAL_LENGTH", realsenseJNI.Device_PROPERTY_COLOR_FOCAL_LENGTH_get());
-      public final static PXCCapture.Device.Property PROPERTY_COLOR_PRINCIPAL_POINT = new PXCCapture.Device.Property("PROPERTY_COLOR_PRINCIPAL_POINT", realsenseJNI.Device_PROPERTY_COLOR_PRINCIPAL_POINT_get());
-      public final static PXCCapture.Device.Property PROPERTY_DEPTH_LOW_CONFIDENCE_VALUE = new PXCCapture.Device.Property("PROPERTY_DEPTH_LOW_CONFIDENCE_VALUE", realsenseJNI.Device_PROPERTY_DEPTH_LOW_CONFIDENCE_VALUE_get());
-      public final static PXCCapture.Device.Property PROPERTY_DEPTH_CONFIDENCE_THRESHOLD = new PXCCapture.Device.Property("PROPERTY_DEPTH_CONFIDENCE_THRESHOLD", realsenseJNI.Device_PROPERTY_DEPTH_CONFIDENCE_THRESHOLD_get());
-      public final static PXCCapture.Device.Property PROPERTY_DEPTH_UNIT = new PXCCapture.Device.Property("PROPERTY_DEPTH_UNIT", realsenseJNI.Device_PROPERTY_DEPTH_UNIT_get());
-      public final static PXCCapture.Device.Property PROPERTY_DEPTH_FOCAL_LENGTH_MM = new PXCCapture.Device.Property("PROPERTY_DEPTH_FOCAL_LENGTH_MM", realsenseJNI.Device_PROPERTY_DEPTH_FOCAL_LENGTH_MM_get());
-      public final static PXCCapture.Device.Property PROPERTY_DEPTH_FIELD_OF_VIEW = new PXCCapture.Device.Property("PROPERTY_DEPTH_FIELD_OF_VIEW", realsenseJNI.Device_PROPERTY_DEPTH_FIELD_OF_VIEW_get());
-      public final static PXCCapture.Device.Property PROPERTY_DEPTH_SENSOR_RANGE = new PXCCapture.Device.Property("PROPERTY_DEPTH_SENSOR_RANGE", realsenseJNI.Device_PROPERTY_DEPTH_SENSOR_RANGE_get());
-      public final static PXCCapture.Device.Property PROPERTY_DEPTH_FOCAL_LENGTH = new PXCCapture.Device.Property("PROPERTY_DEPTH_FOCAL_LENGTH", realsenseJNI.Device_PROPERTY_DEPTH_FOCAL_LENGTH_get());
-      public final static PXCCapture.Device.Property PROPERTY_DEPTH_PRINCIPAL_POINT = new PXCCapture.Device.Property("PROPERTY_DEPTH_PRINCIPAL_POINT", realsenseJNI.Device_PROPERTY_DEPTH_PRINCIPAL_POINT_get());
-      public final static PXCCapture.Device.Property PROPERTY_DEVICE_ALLOW_PROFILE_CHANGE = new PXCCapture.Device.Property("PROPERTY_DEVICE_ALLOW_PROFILE_CHANGE", realsenseJNI.Device_PROPERTY_DEVICE_ALLOW_PROFILE_CHANGE_get());
-      public final static PXCCapture.Device.Property PROPERTY_DEVICE_MIRROR = new PXCCapture.Device.Property("PROPERTY_DEVICE_MIRROR", realsenseJNI.Device_PROPERTY_DEVICE_MIRROR_get());
-      public final static PXCCapture.Device.Property PROPERTY_PROJECTION_SERIALIZABLE = new PXCCapture.Device.Property("PROPERTY_PROJECTION_SERIALIZABLE", realsenseJNI.Device_PROPERTY_PROJECTION_SERIALIZABLE_get());
-      public final static PXCCapture.Device.Property PROPERTY_IVCAM_LASER_POWER = new PXCCapture.Device.Property("PROPERTY_IVCAM_LASER_POWER", realsenseJNI.Device_PROPERTY_IVCAM_LASER_POWER_get());
-      public final static PXCCapture.Device.Property PROPERTY_IVCAM_ACCURACY = new PXCCapture.Device.Property("PROPERTY_IVCAM_ACCURACY", realsenseJNI.Device_PROPERTY_IVCAM_ACCURACY_get());
-      public final static PXCCapture.Device.Property PROPERTY_IVCAM_FILTER_OPTION = new PXCCapture.Device.Property("PROPERTY_IVCAM_FILTER_OPTION", realsenseJNI.Device_PROPERTY_IVCAM_FILTER_OPTION_get());
-      public final static PXCCapture.Device.Property PROPERTY_IVCAM_MOTION_RANGE_TRADE_OFF = new PXCCapture.Device.Property("PROPERTY_IVCAM_MOTION_RANGE_TRADE_OFF", realsenseJNI.Device_PROPERTY_IVCAM_MOTION_RANGE_TRADE_OFF_get());
-      public final static PXCCapture.Device.Property PROPERTY_CUSTOMIZED = new PXCCapture.Device.Property("PROPERTY_CUSTOMIZED", realsenseJNI.Device_PROPERTY_CUSTOMIZED_get());
-  
-      public final int swigValue() {
-        return swigValue;
-      }
-  
-      public String toString() {
-        return swigName;
-      }
-  
-      public static Property swigToEnum(int swigValue) {
-        if (swigValue < swigValues.length && swigValue >= 0 && swigValues[swigValue].swigValue == swigValue)
-          return swigValues[swigValue];
-        for (int i = 0; i < swigValues.length; i++)
-          if (swigValues[i].swigValue == swigValue)
-            return swigValues[i];
-        throw new IllegalArgumentException("No enum " + Property.class + " with value " + swigValue);
-      }
-  
-      private Property(String swigName) {
-        this.swigName = swigName;
-        this.swigValue = swigNext++;
-      }
-  
-      private Property(String swigName, int swigValue) {
-        this.swigName = swigName;
-        this.swigValue = swigValue;
-        swigNext = swigValue+1;
-      }
-  
-      private Property(String swigName, Property swigEnum) {
-        this.swigName = swigName;
-        this.swigValue = swigEnum.swigValue;
-        swigNext = this.swigValue+1;
-      }
-  
-      private static Property[] swigValues = { PROPERTY_COLOR_EXPOSURE, PROPERTY_COLOR_BRIGHTNESS, PROPERTY_COLOR_CONTRAST, PROPERTY_COLOR_SATURATION, PROPERTY_COLOR_HUE, PROPERTY_COLOR_GAMMA, PROPERTY_COLOR_WHITE_BALANCE, PROPERTY_COLOR_SHARPNESS, PROPERTY_COLOR_BACK_LIGHT_COMPENSATION, PROPERTY_COLOR_GAIN, PROPERTY_COLOR_POWER_LINE_FREQUENCY, PROPERTY_COLOR_FOCAL_LENGTH_MM, PROPERTY_COLOR_FIELD_OF_VIEW, PROPERTY_COLOR_FOCAL_LENGTH, PROPERTY_COLOR_PRINCIPAL_POINT, PROPERTY_DEPTH_LOW_CONFIDENCE_VALUE, PROPERTY_DEPTH_CONFIDENCE_THRESHOLD, PROPERTY_DEPTH_UNIT, PROPERTY_DEPTH_FOCAL_LENGTH_MM, PROPERTY_DEPTH_FIELD_OF_VIEW, PROPERTY_DEPTH_SENSOR_RANGE, PROPERTY_DEPTH_FOCAL_LENGTH, PROPERTY_DEPTH_PRINCIPAL_POINT, PROPERTY_DEVICE_ALLOW_PROFILE_CHANGE, PROPERTY_DEVICE_MIRROR, PROPERTY_PROJECTION_SERIALIZABLE, PROPERTY_IVCAM_LASER_POWER, PROPERTY_IVCAM_ACCURACY, PROPERTY_IVCAM_FILTER_OPTION, PROPERTY_IVCAM_MOTION_RANGE_TRADE_OFF, PROPERTY_CUSTOMIZED };
-      private static int swigNext = 0;
-      private final int swigValue;
-      private final String swigName;
-    }
-  
   }
-
-  public final static int CUID = realsenseJNI.PXCCapture_CUID_get();
 
   public final static int STREAM_LIMIT = realsenseJNI.PXCCapture_STREAM_LIMIT_get();
 
@@ -1165,6 +954,213 @@ public class PXCCapture extends PXCBase {
     }
 
     private static DeviceOrientation[] swigValues = { DEVICE_ORIENTATION_ANY, DEVICE_ORIENTATION_USER_FACING, DEVICE_ORIENTATION_WORLD_FACING };
+    private static int swigNext = 0;
+    private final int swigValue;
+    private final String swigName;
+  }
+
+  public final static class PowerLineFrequency {
+    public final static PXCCapture.PowerLineFrequency POWER_LINE_FREQUENCY_DISABLED = new PXCCapture.PowerLineFrequency("POWER_LINE_FREQUENCY_DISABLED", realsenseJNI.PXCCapture_POWER_LINE_FREQUENCY_DISABLED_get());
+    public final static PXCCapture.PowerLineFrequency POWER_LINE_FREQUENCY_50HZ = new PXCCapture.PowerLineFrequency("POWER_LINE_FREQUENCY_50HZ", realsenseJNI.PXCCapture_POWER_LINE_FREQUENCY_50HZ_get());
+    public final static PXCCapture.PowerLineFrequency POWER_LINE_FREQUENCY_60HZ = new PXCCapture.PowerLineFrequency("POWER_LINE_FREQUENCY_60HZ", realsenseJNI.PXCCapture_POWER_LINE_FREQUENCY_60HZ_get());
+
+    public final int swigValue() {
+      return swigValue;
+    }
+
+    public String toString() {
+      return swigName;
+    }
+
+    public static PowerLineFrequency swigToEnum(int swigValue) {
+      if (swigValue < swigValues.length && swigValue >= 0 && swigValues[swigValue].swigValue == swigValue)
+        return swigValues[swigValue];
+      for (int i = 0; i < swigValues.length; i++)
+        if (swigValues[i].swigValue == swigValue)
+          return swigValues[i];
+      throw new IllegalArgumentException("No enum " + PowerLineFrequency.class + " with value " + swigValue);
+    }
+
+    private PowerLineFrequency(String swigName) {
+      this.swigName = swigName;
+      this.swigValue = swigNext++;
+    }
+
+    private PowerLineFrequency(String swigName, int swigValue) {
+      this.swigName = swigName;
+      this.swigValue = swigValue;
+      swigNext = swigValue+1;
+    }
+
+    private PowerLineFrequency(String swigName, PowerLineFrequency swigEnum) {
+      this.swigName = swigName;
+      this.swigValue = swigEnum.swigValue;
+      swigNext = this.swigValue+1;
+    }
+
+    private static PowerLineFrequency[] swigValues = { POWER_LINE_FREQUENCY_DISABLED, POWER_LINE_FREQUENCY_50HZ, POWER_LINE_FREQUENCY_60HZ };
+    private static int swigNext = 0;
+    private final int swigValue;
+    private final String swigName;
+  }
+
+  public final static class MirrorMode {
+    public final static PXCCapture.MirrorMode MIRROR_MODE_DISABLED = new PXCCapture.MirrorMode("MIRROR_MODE_DISABLED", realsenseJNI.PXCCapture_MIRROR_MODE_DISABLED_get());
+    public final static PXCCapture.MirrorMode MIRROR_MODE_HORIZONTAL = new PXCCapture.MirrorMode("MIRROR_MODE_HORIZONTAL", realsenseJNI.PXCCapture_MIRROR_MODE_HORIZONTAL_get());
+
+    public final int swigValue() {
+      return swigValue;
+    }
+
+    public String toString() {
+      return swigName;
+    }
+
+    public static MirrorMode swigToEnum(int swigValue) {
+      if (swigValue < swigValues.length && swigValue >= 0 && swigValues[swigValue].swigValue == swigValue)
+        return swigValues[swigValue];
+      for (int i = 0; i < swigValues.length; i++)
+        if (swigValues[i].swigValue == swigValue)
+          return swigValues[i];
+      throw new IllegalArgumentException("No enum " + MirrorMode.class + " with value " + swigValue);
+    }
+
+    private MirrorMode(String swigName) {
+      this.swigName = swigName;
+      this.swigValue = swigNext++;
+    }
+
+    private MirrorMode(String swigName, int swigValue) {
+      this.swigName = swigName;
+      this.swigValue = swigValue;
+      swigNext = swigValue+1;
+    }
+
+    private MirrorMode(String swigName, MirrorMode swigEnum) {
+      this.swigName = swigName;
+      this.swigValue = swigEnum.swigValue;
+      swigNext = this.swigValue+1;
+    }
+
+    private static MirrorMode[] swigValues = { MIRROR_MODE_DISABLED, MIRROR_MODE_HORIZONTAL };
+    private static int swigNext = 0;
+    private final int swigValue;
+    private final String swigName;
+  }
+
+  public final static class IVCAMAccuracy {
+    public final static PXCCapture.IVCAMAccuracy IVCAM_ACCURACY_FINEST = new PXCCapture.IVCAMAccuracy("IVCAM_ACCURACY_FINEST", realsenseJNI.PXCCapture_IVCAM_ACCURACY_FINEST_get());
+    public final static PXCCapture.IVCAMAccuracy IVCAM_ACCURACY_MEDIAN = new PXCCapture.IVCAMAccuracy("IVCAM_ACCURACY_MEDIAN", realsenseJNI.PXCCapture_IVCAM_ACCURACY_MEDIAN_get());
+    public final static PXCCapture.IVCAMAccuracy IVCAM_ACCURACY_COARSE = new PXCCapture.IVCAMAccuracy("IVCAM_ACCURACY_COARSE", realsenseJNI.PXCCapture_IVCAM_ACCURACY_COARSE_get());
+
+    public final int swigValue() {
+      return swigValue;
+    }
+
+    public String toString() {
+      return swigName;
+    }
+
+    public static IVCAMAccuracy swigToEnum(int swigValue) {
+      if (swigValue < swigValues.length && swigValue >= 0 && swigValues[swigValue].swigValue == swigValue)
+        return swigValues[swigValue];
+      for (int i = 0; i < swigValues.length; i++)
+        if (swigValues[i].swigValue == swigValue)
+          return swigValues[i];
+      throw new IllegalArgumentException("No enum " + IVCAMAccuracy.class + " with value " + swigValue);
+    }
+
+    private IVCAMAccuracy(String swigName) {
+      this.swigName = swigName;
+      this.swigValue = swigNext++;
+    }
+
+    private IVCAMAccuracy(String swigName, int swigValue) {
+      this.swigName = swigName;
+      this.swigValue = swigValue;
+      swigNext = swigValue+1;
+    }
+
+    private IVCAMAccuracy(String swigName, IVCAMAccuracy swigEnum) {
+      this.swigName = swigName;
+      this.swigValue = swigEnum.swigValue;
+      swigNext = this.swigValue+1;
+    }
+
+    private static IVCAMAccuracy[] swigValues = { IVCAM_ACCURACY_FINEST, IVCAM_ACCURACY_MEDIAN, IVCAM_ACCURACY_COARSE };
+    private static int swigNext = 0;
+    private final int swigValue;
+    private final String swigName;
+  }
+
+  public final static class Property {
+    public final static PXCCapture.Property PROPERTY_COLOR_EXPOSURE = new PXCCapture.Property("PROPERTY_COLOR_EXPOSURE", realsenseJNI.PXCCapture_PROPERTY_COLOR_EXPOSURE_get());
+    public final static PXCCapture.Property PROPERTY_COLOR_BRIGHTNESS = new PXCCapture.Property("PROPERTY_COLOR_BRIGHTNESS", realsenseJNI.PXCCapture_PROPERTY_COLOR_BRIGHTNESS_get());
+    public final static PXCCapture.Property PROPERTY_COLOR_CONTRAST = new PXCCapture.Property("PROPERTY_COLOR_CONTRAST", realsenseJNI.PXCCapture_PROPERTY_COLOR_CONTRAST_get());
+    public final static PXCCapture.Property PROPERTY_COLOR_SATURATION = new PXCCapture.Property("PROPERTY_COLOR_SATURATION", realsenseJNI.PXCCapture_PROPERTY_COLOR_SATURATION_get());
+    public final static PXCCapture.Property PROPERTY_COLOR_HUE = new PXCCapture.Property("PROPERTY_COLOR_HUE", realsenseJNI.PXCCapture_PROPERTY_COLOR_HUE_get());
+    public final static PXCCapture.Property PROPERTY_COLOR_GAMMA = new PXCCapture.Property("PROPERTY_COLOR_GAMMA", realsenseJNI.PXCCapture_PROPERTY_COLOR_GAMMA_get());
+    public final static PXCCapture.Property PROPERTY_COLOR_WHITE_BALANCE = new PXCCapture.Property("PROPERTY_COLOR_WHITE_BALANCE", realsenseJNI.PXCCapture_PROPERTY_COLOR_WHITE_BALANCE_get());
+    public final static PXCCapture.Property PROPERTY_COLOR_SHARPNESS = new PXCCapture.Property("PROPERTY_COLOR_SHARPNESS", realsenseJNI.PXCCapture_PROPERTY_COLOR_SHARPNESS_get());
+    public final static PXCCapture.Property PROPERTY_COLOR_BACK_LIGHT_COMPENSATION = new PXCCapture.Property("PROPERTY_COLOR_BACK_LIGHT_COMPENSATION", realsenseJNI.PXCCapture_PROPERTY_COLOR_BACK_LIGHT_COMPENSATION_get());
+    public final static PXCCapture.Property PROPERTY_COLOR_GAIN = new PXCCapture.Property("PROPERTY_COLOR_GAIN", realsenseJNI.PXCCapture_PROPERTY_COLOR_GAIN_get());
+    public final static PXCCapture.Property PROPERTY_COLOR_POWER_LINE_FREQUENCY = new PXCCapture.Property("PROPERTY_COLOR_POWER_LINE_FREQUENCY", realsenseJNI.PXCCapture_PROPERTY_COLOR_POWER_LINE_FREQUENCY_get());
+    public final static PXCCapture.Property PROPERTY_COLOR_FOCAL_LENGTH_MM = new PXCCapture.Property("PROPERTY_COLOR_FOCAL_LENGTH_MM", realsenseJNI.PXCCapture_PROPERTY_COLOR_FOCAL_LENGTH_MM_get());
+    public final static PXCCapture.Property PROPERTY_COLOR_FIELD_OF_VIEW = new PXCCapture.Property("PROPERTY_COLOR_FIELD_OF_VIEW", realsenseJNI.PXCCapture_PROPERTY_COLOR_FIELD_OF_VIEW_get());
+    public final static PXCCapture.Property PROPERTY_COLOR_FOCAL_LENGTH = new PXCCapture.Property("PROPERTY_COLOR_FOCAL_LENGTH", realsenseJNI.PXCCapture_PROPERTY_COLOR_FOCAL_LENGTH_get());
+    public final static PXCCapture.Property PROPERTY_COLOR_PRINCIPAL_POINT = new PXCCapture.Property("PROPERTY_COLOR_PRINCIPAL_POINT", realsenseJNI.PXCCapture_PROPERTY_COLOR_PRINCIPAL_POINT_get());
+    public final static PXCCapture.Property PROPERTY_DEPTH_LOW_CONFIDENCE_VALUE = new PXCCapture.Property("PROPERTY_DEPTH_LOW_CONFIDENCE_VALUE", realsenseJNI.PXCCapture_PROPERTY_DEPTH_LOW_CONFIDENCE_VALUE_get());
+    public final static PXCCapture.Property PROPERTY_DEPTH_CONFIDENCE_THRESHOLD = new PXCCapture.Property("PROPERTY_DEPTH_CONFIDENCE_THRESHOLD", realsenseJNI.PXCCapture_PROPERTY_DEPTH_CONFIDENCE_THRESHOLD_get());
+    public final static PXCCapture.Property PROPERTY_DEPTH_UNIT = new PXCCapture.Property("PROPERTY_DEPTH_UNIT", realsenseJNI.PXCCapture_PROPERTY_DEPTH_UNIT_get());
+    public final static PXCCapture.Property PROPERTY_DEPTH_FOCAL_LENGTH_MM = new PXCCapture.Property("PROPERTY_DEPTH_FOCAL_LENGTH_MM", realsenseJNI.PXCCapture_PROPERTY_DEPTH_FOCAL_LENGTH_MM_get());
+    public final static PXCCapture.Property PROPERTY_DEPTH_FIELD_OF_VIEW = new PXCCapture.Property("PROPERTY_DEPTH_FIELD_OF_VIEW", realsenseJNI.PXCCapture_PROPERTY_DEPTH_FIELD_OF_VIEW_get());
+    public final static PXCCapture.Property PROPERTY_DEPTH_SENSOR_RANGE = new PXCCapture.Property("PROPERTY_DEPTH_SENSOR_RANGE", realsenseJNI.PXCCapture_PROPERTY_DEPTH_SENSOR_RANGE_get());
+    public final static PXCCapture.Property PROPERTY_DEPTH_FOCAL_LENGTH = new PXCCapture.Property("PROPERTY_DEPTH_FOCAL_LENGTH", realsenseJNI.PXCCapture_PROPERTY_DEPTH_FOCAL_LENGTH_get());
+    public final static PXCCapture.Property PROPERTY_DEPTH_PRINCIPAL_POINT = new PXCCapture.Property("PROPERTY_DEPTH_PRINCIPAL_POINT", realsenseJNI.PXCCapture_PROPERTY_DEPTH_PRINCIPAL_POINT_get());
+    public final static PXCCapture.Property PROPERTY_DEVICE_ALLOW_PROFILE_CHANGE = new PXCCapture.Property("PROPERTY_DEVICE_ALLOW_PROFILE_CHANGE", realsenseJNI.PXCCapture_PROPERTY_DEVICE_ALLOW_PROFILE_CHANGE_get());
+    public final static PXCCapture.Property PROPERTY_DEVICE_MIRROR = new PXCCapture.Property("PROPERTY_DEVICE_MIRROR", realsenseJNI.PXCCapture_PROPERTY_DEVICE_MIRROR_get());
+    public final static PXCCapture.Property PROPERTY_PROJECTION_SERIALIZABLE = new PXCCapture.Property("PROPERTY_PROJECTION_SERIALIZABLE", realsenseJNI.PXCCapture_PROPERTY_PROJECTION_SERIALIZABLE_get());
+    public final static PXCCapture.Property PROPERTY_IVCAM_LASER_POWER = new PXCCapture.Property("PROPERTY_IVCAM_LASER_POWER", realsenseJNI.PXCCapture_PROPERTY_IVCAM_LASER_POWER_get());
+    public final static PXCCapture.Property PROPERTY_IVCAM_ACCURACY = new PXCCapture.Property("PROPERTY_IVCAM_ACCURACY", realsenseJNI.PXCCapture_PROPERTY_IVCAM_ACCURACY_get());
+    public final static PXCCapture.Property PROPERTY_IVCAM_FILTER_OPTION = new PXCCapture.Property("PROPERTY_IVCAM_FILTER_OPTION", realsenseJNI.PXCCapture_PROPERTY_IVCAM_FILTER_OPTION_get());
+    public final static PXCCapture.Property PROPERTY_IVCAM_MOTION_RANGE_TRADE_OFF = new PXCCapture.Property("PROPERTY_IVCAM_MOTION_RANGE_TRADE_OFF", realsenseJNI.PXCCapture_PROPERTY_IVCAM_MOTION_RANGE_TRADE_OFF_get());
+    public final static PXCCapture.Property PROPERTY_CUSTOMIZED = new PXCCapture.Property("PROPERTY_CUSTOMIZED", realsenseJNI.PXCCapture_PROPERTY_CUSTOMIZED_get());
+
+    public final int swigValue() {
+      return swigValue;
+    }
+
+    public String toString() {
+      return swigName;
+    }
+
+    public static Property swigToEnum(int swigValue) {
+      if (swigValue < swigValues.length && swigValue >= 0 && swigValues[swigValue].swigValue == swigValue)
+        return swigValues[swigValue];
+      for (int i = 0; i < swigValues.length; i++)
+        if (swigValues[i].swigValue == swigValue)
+          return swigValues[i];
+      throw new IllegalArgumentException("No enum " + Property.class + " with value " + swigValue);
+    }
+
+    private Property(String swigName) {
+      this.swigName = swigName;
+      this.swigValue = swigNext++;
+    }
+
+    private Property(String swigName, int swigValue) {
+      this.swigName = swigName;
+      this.swigValue = swigValue;
+      swigNext = swigValue+1;
+    }
+
+    private Property(String swigName, Property swigEnum) {
+      this.swigName = swigName;
+      this.swigValue = swigEnum.swigValue;
+      swigNext = this.swigValue+1;
+    }
+
+    private static Property[] swigValues = { PROPERTY_COLOR_EXPOSURE, PROPERTY_COLOR_BRIGHTNESS, PROPERTY_COLOR_CONTRAST, PROPERTY_COLOR_SATURATION, PROPERTY_COLOR_HUE, PROPERTY_COLOR_GAMMA, PROPERTY_COLOR_WHITE_BALANCE, PROPERTY_COLOR_SHARPNESS, PROPERTY_COLOR_BACK_LIGHT_COMPENSATION, PROPERTY_COLOR_GAIN, PROPERTY_COLOR_POWER_LINE_FREQUENCY, PROPERTY_COLOR_FOCAL_LENGTH_MM, PROPERTY_COLOR_FIELD_OF_VIEW, PROPERTY_COLOR_FOCAL_LENGTH, PROPERTY_COLOR_PRINCIPAL_POINT, PROPERTY_DEPTH_LOW_CONFIDENCE_VALUE, PROPERTY_DEPTH_CONFIDENCE_THRESHOLD, PROPERTY_DEPTH_UNIT, PROPERTY_DEPTH_FOCAL_LENGTH_MM, PROPERTY_DEPTH_FIELD_OF_VIEW, PROPERTY_DEPTH_SENSOR_RANGE, PROPERTY_DEPTH_FOCAL_LENGTH, PROPERTY_DEPTH_PRINCIPAL_POINT, PROPERTY_DEVICE_ALLOW_PROFILE_CHANGE, PROPERTY_DEVICE_MIRROR, PROPERTY_PROJECTION_SERIALIZABLE, PROPERTY_IVCAM_LASER_POWER, PROPERTY_IVCAM_ACCURACY, PROPERTY_IVCAM_FILTER_OPTION, PROPERTY_IVCAM_MOTION_RANGE_TRADE_OFF, PROPERTY_CUSTOMIZED };
     private static int swigNext = 0;
     private final int swigValue;
     private final String swigName;

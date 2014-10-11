@@ -77,6 +77,4 @@ public class PXCProjection extends PXCBase {
     return (cPtr == 0) ? null : new PXCImage(cPtr, false);
   }
 
-  public final static int CUID = realsenseJNI.PXCProjection_CUID_get();
-
 }

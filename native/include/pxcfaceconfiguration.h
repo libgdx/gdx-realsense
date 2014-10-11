@@ -127,7 +127,9 @@ public:
 			REGISTRATION_MODE_ON_DEMAND,	//registers users on demand only
 		};
 
+#ifndef SWIG
 		PXC_DEFINE_CONST(STORAGE_NAME_SIZE, 50);
+#endif
 
 		struct RecognitionStorageDesc
 		{

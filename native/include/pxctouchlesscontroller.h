@@ -30,22 +30,24 @@ public:
 
     PXC_CUID_OVERWRITE(PXC_UID('F','L','K','S'));
 
+	enum {
+		Configuration_None = 0x00000000, // No option is selected - use default behavior 
+		Configuration_Allow_Zoom = 0x00000001, // Should zoom be allowed
+		Configuration_Use_Draw_Mode = 0x00000002, // Use draw mode - should be used for applications the need continues interaction (touch + movement) like drawing
+		Configuration_Scroll_Horizontally = 0x00000004, // Enable horizontal scrolling using pinch gesture
+		Configuration_Scroll_Vertically = 0x00000008, // Enable vertical scrolling  using pinch gesture
+		Configuration_Meta_Context_Menu = 0x00000010, // Should Meta menu events be fired, triggered by v gesture
+		Configuration_Enable_Injection = 0x00000020, // Disable the injection of keyboar/mouse/touch events
+		Configuration_Edge_Scroll_Horizontally = 0x00000040, // Enable horizontal scrolling when pointer is on the edge of the screen
+		Configuration_Edge_Scroll_Vertically = 0x00000080, // Enable vertical scrolling  when pointer is on the edge of the screen
+		Configuration_Hide_Cursor_After_Touch_Injection = 0x00000100, // Should windows cursor be hidden after touch injection - other wise windows will make the cursor reappear
+		Configuration_Allow_Back = 0x00000200 //  Enable Back Gesture
+	};
+
     struct ProfileInfo
     {
 		typedef pxcEnum Configuration; // an or value of UX options relevant to specific application
-        enum {
-			Configuration_None = 0x00000000, // No option is selected - use default behavior 
-			Configuration_Allow_Zoom = 0x00000001, // Should zoom be allowed
-			Configuration_Use_Draw_Mode = 0x00000002, // Use draw mode - should be used for applications the need continues interaction (touch + movement) like drawing
-			Configuration_Scroll_Horizontally = 0x00000004, // Enable horizontal scrolling using pinch gesture
-			Configuration_Scroll_Vertically = 0x00000008, // Enable vertical scrolling  using pinch gesture
-			Configuration_Meta_Context_Menu = 0x00000010, // Should Meta menu events be fired, triggered by v gesture
-			Configuration_Enable_Injection = 0x00000020, // Disable the injection of keyboar/mouse/touch events
-			Configuration_Edge_Scroll_Horizontally = 0x00000040, // Enable horizontal scrolling when pointer is on the edge of the screen
-			Configuration_Edge_Scroll_Vertically = 0x00000080, // Enable vertical scrolling  when pointer is on the edge of the screen
-			Configuration_Hide_Cursor_After_Touch_Injection = 0x00000100, // Should windows cursor be hidden after touch injection - other wise windows will make the cursor reappear
-			Configuration_Allow_Back = 0x00000200 //  Enable Back Gesture
-		};
+        
 
 		
         PXCHandModule*		handModule;   //the HandAnalysis module used by this module, dont set it when using SenseManager - this is just an output parameter

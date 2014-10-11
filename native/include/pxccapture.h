@@ -200,90 +200,92 @@ public:
         This is the video device interface.
         Use the member functions to interface with the video capture device.
     */
+	/**
+	@enum PowerLineFrequency
+	Describes the power line compensation filter values.
+	*/
+	enum PowerLineFrequency {
+		POWER_LINE_FREQUENCY_DISABLED = 0,          /* Disabled power line frequency */
+		POWER_LINE_FREQUENCY_50HZ = 1,         /* 50HZ power line frequency */
+		POWER_LINE_FREQUENCY_60HZ = 2,         /* 60HZ power line frequency */
+	};
+
+	/**
+	@enum MirrorMode
+	Describes the mirroring options.
+	*/
+	enum MirrorMode {
+		MIRROR_MODE_DISABLED = 0,          /* Disabled. The images are displayed as in a world facing camera.  */
+		MIRROR_MODE_HORIZONTAL = 1,          /* The images are horizontally mirrored as in a user facing camera. */
+	};
+
+	/**
+	@enum IVCAMAccuracy
+	Describes the IVCAM accuracy.
+	*/
+	enum IVCAMAccuracy {
+		IVCAM_ACCURACY_FINEST = 1,         /* The finest accuracy: 9 patterns */
+		IVCAM_ACCURACY_MEDIAN = 2,         /* The median accuracy: 8 patterns (default) */
+		IVCAM_ACCURACY_COARSE = 3,         /* The coarse accuracy: 7 patterns */
+	};
+
+	/**
+	@enum Property
+	Describes the device properties.
+	Use the inline functions to access specific device properties.
+	*/
+	enum Property {
+		/* Color Stream Properties */
+		PROPERTY_COLOR_EXPOSURE = 1,           /* pxcI32        RW    The color stream exposure, in log base 2 seconds. */
+		PROPERTY_COLOR_BRIGHTNESS = 2,           /* pxcI32        RW    The color stream brightness from  -10,000 (pure black) to 10,000 (pure white). */
+		PROPERTY_COLOR_CONTRAST = 3,           /* pxcI32        RW    The color stream contrast, from 0 to 10,000. */
+		PROPERTY_COLOR_SATURATION = 4,           /* pxcI32        RW    The color stream saturation, from 0 to 10,000. */
+		PROPERTY_COLOR_HUE = 5,           /* pxcI32        RW    The color stream hue, from -180,000 to 180,000 (representing -180 to 180 degrees.) */
+		PROPERTY_COLOR_GAMMA = 6,           /* pxcI32        RW    The color stream gamma, from 1 to 500. */
+		PROPERTY_COLOR_WHITE_BALANCE = 7,           /* pxcI32        RW    The color stream balance, as a color temperature in degrees Kelvin. */
+		PROPERTY_COLOR_SHARPNESS = 8,           /* pxcI32        RW    The color stream sharpness, from 0 to 100. */
+		PROPERTY_COLOR_BACK_LIGHT_COMPENSATION = 9,       /* pxcBool       RW    The color stream back light compensation. */
+		PROPERTY_COLOR_GAIN = 10,      /* pxcI32        RW    The color stream gain adjustment, with negative values darker, positive values brighter, and zero as normal. */
+		PROPERTY_COLOR_POWER_LINE_FREQUENCY = 11,      /* pxcI32        RW    The power line frequency in Hz. */
+		PROPERTY_COLOR_FOCAL_LENGTH_MM = 12,          /* pxcF32         R    The color-sensor focal length in mm. */
+		PROPERTY_COLOR_FIELD_OF_VIEW = 1000,        /* PXCPointF32    R    The color-sensor horizontal and vertical field of view parameters, in degrees. */
+		PROPERTY_COLOR_FOCAL_LENGTH = 1006,        /* PXCPointF32    R    The color-sensor focal length in pixels. The parameters vary with the resolution setting. */
+		PROPERTY_COLOR_PRINCIPAL_POINT = 1008,        /* PXCPointF32    R    The color-sensor principal point in pixels. The parameters vary with the resolution setting. */
+
+		/* Depth Stream Properties */
+		PROPERTY_DEPTH_LOW_CONFIDENCE_VALUE = 201,         /* pxcU16         R    The special depth map value to indicate that the corresponding depth map pixel is of low-confidence. */
+		PROPERTY_DEPTH_CONFIDENCE_THRESHOLD = 202,         /* pxcI16        RW    The confidence threshold that is used to floor the depth map values. The range is from  0 to 15. */
+		PROPERTY_DEPTH_UNIT = 204,         /* pxcI32         R    The unit of depth values in micrometer if PIXEL_FORMAT_DEPTH_RAW */
+		PROPERTY_DEPTH_FOCAL_LENGTH_MM = 205,         /* pxcF32         R    The depth-sensor focal length in mm. */
+		PROPERTY_DEPTH_FIELD_OF_VIEW = 2000,        /* PXCPointF32    R    The depth-sensor horizontal and vertical field of view parameters, in degrees. */
+		PROPERTY_DEPTH_SENSOR_RANGE = 2002,        /* PXCRangeF32    R    The depth-sensor, sensing distance parameters, in millimeters. */
+		PROPERTY_DEPTH_FOCAL_LENGTH = 2006,        /* PXCPointF32    R    The depth-sensor focal length in pixels. The parameters vary with the resolution setting. */
+		PROPERTY_DEPTH_PRINCIPAL_POINT = 2008,        /* PXCPointF32    R    The depth-sensor principal point in pixels. The parameters vary with the resolution setting. */
+
+		/* Device Properties */
+		PROPERTY_DEVICE_ALLOW_PROFILE_CHANGE = 302,        /* pxcBool       RW    If true, allow resolution change and throw PXC_STATUS_STREAM_CONFIG_CHANGED */
+		PROPERTY_DEVICE_MIRROR = 304,        /* MirrorMode    RW    The mirroring options. */
+
+		/* Misc. Properties */
+		PROPERTY_PROJECTION_SERIALIZABLE = 3003,        /* pxcU32         R    The meta data identifier of the Projection instance serialization data. */
+
+		/* Device Specific Properties */
+		PROPERTY_IVCAM_LASER_POWER = 0x10000,      /* pxcI32        RW    The laser power value from 0 (minimum) to 16 (maximum). */
+		PROPERTY_IVCAM_ACCURACY = 0x10001,      /* IVCAMAccuracy RW    The IVCAM accuracy value. */
+		PROPERTY_IVCAM_FILTER_OPTION = 0x10003,      /* pxcI32        RW    The filter option (smoothing aggressiveness) ranged from 0 (close range) to 7 (far range). */
+		PROPERTY_IVCAM_MOTION_RANGE_TRADE_OFF = 0x10004,      /* pxcI32        RW    This option specifies the motion and range trade off. The value ranged from 0 (short exposure, range, and better motion) to 100 (long exposure, range). */
+
+		/* Customized properties */
+		PROPERTY_CUSTOMIZED = 0x04000000,                        /* CUSTOMIZED properties */
+	};
+
     class Device : public PXCBase {
         friend class PXCCaptureDeviceExt;
     public:
 
         PXC_CUID_OVERWRITE(0x938401C4);
 
-        /** 
-            @enum PowerLineFrequency
-            Describes the power line compensation filter values.
-        */
-        enum PowerLineFrequency {
-            POWER_LINE_FREQUENCY_DISABLED       =   0,          /* Disabled power line frequency */
-            POWER_LINE_FREQUENCY_50HZ           =   1,         /* 50HZ power line frequency */
-            POWER_LINE_FREQUENCY_60HZ           =   2,         /* 60HZ power line frequency */
-        };
-
-        /**
-            @enum MirrorMode
-            Describes the mirroring options.
-        */
-        enum MirrorMode {
-            MIRROR_MODE_DISABLED                =   0,          /* Disabled. The images are displayed as in a world facing camera.  */
-            MIRROR_MODE_HORIZONTAL              =   1,          /* The images are horizontally mirrored as in a user facing camera. */
-        };
-
-        /**
-            @enum IVCAMAccuracy
-            Describes the IVCAM accuracy.
-        */
-        enum IVCAMAccuracy {
-            IVCAM_ACCURACY_FINEST                =   1,         /* The finest accuracy: 9 patterns */
-            IVCAM_ACCURACY_MEDIAN                =   2,         /* The median accuracy: 8 patterns (default) */
-            IVCAM_ACCURACY_COARSE                =   3,         /* The coarse accuracy: 7 patterns */
-        };
-
-        /** 
-            @enum Property
-            Describes the device properties.
-            Use the inline functions to access specific device properties.
-        */
-        enum Property {
-            /* Color Stream Properties */
-            PROPERTY_COLOR_EXPOSURE             =   1,           /* pxcI32        RW    The color stream exposure, in log base 2 seconds. */
-            PROPERTY_COLOR_BRIGHTNESS           =   2,           /* pxcI32        RW    The color stream brightness from  -10,000 (pure black) to 10,000 (pure white). */
-            PROPERTY_COLOR_CONTRAST             =   3,           /* pxcI32        RW    The color stream contrast, from 0 to 10,000. */
-            PROPERTY_COLOR_SATURATION           =   4,           /* pxcI32        RW    The color stream saturation, from 0 to 10,000. */
-            PROPERTY_COLOR_HUE                  =   5,           /* pxcI32        RW    The color stream hue, from -180,000 to 180,000 (representing -180 to 180 degrees.) */
-            PROPERTY_COLOR_GAMMA                =   6,           /* pxcI32        RW    The color stream gamma, from 1 to 500. */
-            PROPERTY_COLOR_WHITE_BALANCE        =   7,           /* pxcI32        RW    The color stream balance, as a color temperature in degrees Kelvin. */
-            PROPERTY_COLOR_SHARPNESS            =   8,           /* pxcI32        RW    The color stream sharpness, from 0 to 100. */
-            PROPERTY_COLOR_BACK_LIGHT_COMPENSATION  =   9,       /* pxcBool       RW    The color stream back light compensation. */
-            PROPERTY_COLOR_GAIN                     =   10,      /* pxcI32        RW    The color stream gain adjustment, with negative values darker, positive values brighter, and zero as normal. */
-            PROPERTY_COLOR_POWER_LINE_FREQUENCY     =   11,      /* pxcI32        RW    The power line frequency in Hz. */
-            PROPERTY_COLOR_FOCAL_LENGTH_MM      =   12,          /* pxcF32         R    The color-sensor focal length in mm. */
-            PROPERTY_COLOR_FIELD_OF_VIEW        =   1000,        /* PXCPointF32    R    The color-sensor horizontal and vertical field of view parameters, in degrees. */
-            PROPERTY_COLOR_FOCAL_LENGTH         =   1006,        /* PXCPointF32    R    The color-sensor focal length in pixels. The parameters vary with the resolution setting. */
-            PROPERTY_COLOR_PRINCIPAL_POINT      =   1008,        /* PXCPointF32    R    The color-sensor principal point in pixels. The parameters vary with the resolution setting. */
-
-            /* Depth Stream Properties */
-            PROPERTY_DEPTH_LOW_CONFIDENCE_VALUE =   201,         /* pxcU16         R    The special depth map value to indicate that the corresponding depth map pixel is of low-confidence. */
-            PROPERTY_DEPTH_CONFIDENCE_THRESHOLD =   202,         /* pxcI16        RW    The confidence threshold that is used to floor the depth map values. The range is from  0 to 15. */
-            PROPERTY_DEPTH_UNIT                 =   204,         /* pxcI32         R    The unit of depth values in micrometer if PIXEL_FORMAT_DEPTH_RAW */
-            PROPERTY_DEPTH_FOCAL_LENGTH_MM      =   205,         /* pxcF32         R    The depth-sensor focal length in mm. */
-            PROPERTY_DEPTH_FIELD_OF_VIEW        =   2000,        /* PXCPointF32    R    The depth-sensor horizontal and vertical field of view parameters, in degrees. */
-            PROPERTY_DEPTH_SENSOR_RANGE         =   2002,        /* PXCRangeF32    R    The depth-sensor, sensing distance parameters, in millimeters. */
-            PROPERTY_DEPTH_FOCAL_LENGTH         =   2006,        /* PXCPointF32    R    The depth-sensor focal length in pixels. The parameters vary with the resolution setting. */
-            PROPERTY_DEPTH_PRINCIPAL_POINT      =   2008,        /* PXCPointF32    R    The depth-sensor principal point in pixels. The parameters vary with the resolution setting. */
-
-            /* Device Properties */
-            PROPERTY_DEVICE_ALLOW_PROFILE_CHANGE =   302,        /* pxcBool       RW    If true, allow resolution change and throw PXC_STATUS_STREAM_CONFIG_CHANGED */
-            PROPERTY_DEVICE_MIRROR               =   304,        /* MirrorMode    RW    The mirroring options. */
-
-            /* Misc. Properties */
-            PROPERTY_PROJECTION_SERIALIZABLE    =   3003,        /* pxcU32         R    The meta data identifier of the Projection instance serialization data. */
-
-            /* Device Specific Properties */
-            PROPERTY_IVCAM_LASER_POWER           = 0x10000,      /* pxcI32        RW    The laser power value from 0 (minimum) to 16 (maximum). */
-            PROPERTY_IVCAM_ACCURACY              = 0x10001,      /* IVCAMAccuracy RW    The IVCAM accuracy value. */
-			PROPERTY_IVCAM_FILTER_OPTION         = 0x10003,      /* pxcI32        RW    The filter option (smoothing aggressiveness) ranged from 0 (close range) to 7 (far range). */
-			PROPERTY_IVCAM_MOTION_RANGE_TRADE_OFF= 0x10004,      /* pxcI32        RW    This option specifies the motion and range trade off. The value ranged from 0 (short exposure, range, and better motion) to 100 (long exposure, range). */
-
-            /* Customized properties */
-            PROPERTY_CUSTOMIZED=0x04000000,                        /* CUSTOMIZED properties */
-        };
+        
 
         /** 
             @brief Return the device information             

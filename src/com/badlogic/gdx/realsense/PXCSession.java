@@ -277,8 +277,6 @@ public class PXCSession extends PXCBase {
     return (cPtr == 0) ? null : new PXCSession(cPtr, false);
   }
 
-  public final static int CUID = realsenseJNI.PXCSession_CUID_get();
-
   public final static class ImplGroup {
     public final static PXCSession.ImplGroup IMPL_GROUP_ANY = new PXCSession.ImplGroup("IMPL_GROUP_ANY", realsenseJNI.PXCSession_IMPL_GROUP_ANY_get());
     public final static PXCSession.ImplGroup IMPL_GROUP_OBJECT_RECOGNITION = new PXCSession.ImplGroup("IMPL_GROUP_OBJECT_RECOGNITION", realsenseJNI.PXCSession_IMPL_GROUP_OBJECT_RECOGNITION_get());

@@ -41,6 +41,4 @@ public class PXCFaceModule extends PXCBase {
     return (cPtr == 0) ? null : new PXCFaceData(cPtr, false);
   }
 
-  public final static int CUID = realsenseJNI.PXCFaceModule_CUID_get();
-
 }

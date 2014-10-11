@@ -32,7 +32,7 @@ project "gdx-realsense"
 		"./native/**.h",
 	}
 	includedirs {
-		(RS_SDK_ROOT .. "/include"),
+		("./native/include"),
 		(JAVA_HOME .. "/include"),
 		(JAVA_HOME .. "/include/win32")
 	}

@@ -119,6 +119,4 @@ public class PXCAudioSource extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCAudioSource_SetVolume(swigCPtr, this, volume));
   }
 
-  public final static int CUID = realsenseJNI.PXCAudioSource_CUID_get();
-
 }

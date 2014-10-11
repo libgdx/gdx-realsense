@@ -142,6 +142,4 @@ public class PXC3DScan extends PXCBase {
     private final String swigName;
   }
 
-  public final static int CUID = realsenseJNI.PXC3DScan_CUID_get();
-
 }

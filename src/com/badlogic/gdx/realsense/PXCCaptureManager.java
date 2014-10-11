@@ -162,6 +162,4 @@ public class PXCCaptureManager extends PXCBase {
     return realsenseJNI.PXCCaptureManager_QueryNumberOfFrames(swigCPtr, this);
   }
 
-  public final static int CUID = realsenseJNI.PXCCaptureManager_CUID_get();
-
 }
