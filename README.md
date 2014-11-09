@@ -17,7 +17,7 @@ project(":core") {
     }
 }
 ```
- *[Import the project](https://github.com/libgdx/libgdx/wiki/Gradle-and-Eclipse) into your prefered IDE.
+ * [Import the project](https://github.com/libgdx/libgdx/wiki/Gradle-and-Eclipse) into your prefered IDE.
  * See the [examples](https://github.com/libgdx/gdx-realsense/tree/master/tests/com/badlogic/realsense) on how to call the RealSense SDK in your libGDX application. 
  * Check out the [RealSense SDK API documentation](https://software.intel.com/en-us/realsense/documentation). You can directly translate the examples from there to this project's JNI wrapper!
 
