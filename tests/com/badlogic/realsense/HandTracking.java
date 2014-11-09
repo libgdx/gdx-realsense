@@ -20,16 +20,14 @@ import com.badlogic.gdx.realsense.PXCCapture.StreamType;
 import com.badlogic.gdx.realsense.PXCHandConfiguration;
 import com.badlogic.gdx.realsense.PXCHandData;
 import com.badlogic.gdx.realsense.PXCHandData.AccessOrderType;
-import com.badlogic.gdx.realsense.PXCHandData.GestureStateType;
+import com.badlogic.gdx.realsense.PXCHandData.AlertType;
 import com.badlogic.gdx.realsense.PXCHandData.IHand;
 import com.badlogic.gdx.realsense.PXCHandData.JointData;
 import com.badlogic.gdx.realsense.PXCHandData.JointType;
 import com.badlogic.gdx.realsense.PXCHandModule;
-import com.badlogic.gdx.realsense.PXCPoint3DF32;
 import com.badlogic.gdx.realsense.PXCSenseManager;
 import com.badlogic.gdx.realsense.pxcStatus;
 import com.badlogic.gdx.realsense.utils.StreamTexture;
-import com.badlogic.gdx.utils.IntMap;
 
 public class HandTracking extends ApplicationAdapter {
 	PXCSenseManager senseManager;
@@ -55,10 +53,13 @@ public class HandTracking extends ApplicationAdapter {
 		
 		// configure the hand module, we want all gestures
 		// we also want a PXCHandData instance which we'll
-		// later query for gesture data
+		// later query for gesture data. We also enable
+		// alerts if a hand is detected or lost
 		handData = handModule.CreateOutput();
 		handConfig = handModule.CreateActiveConfiguration();
 		handConfig.EnableAllGestures();
+		handConfig.EnableAlert(AlertType.ALERT_HAND_DETECTED);
+		handConfig.EnableAlert(AlertType.ALERT_HAND_NOT_DETECTED);
 		handConfig.ApplyChanges();
 		
 		// we need a texture to upload the image data to
@@ -100,9 +101,6 @@ public class HandTracking extends ApplicationAdapter {
 		batch.begin();
 		font.draw(batch, "#Hands: " + handData.QueryNumberOfHands(), 0, Gdx.graphics.getHeight() - 16);
 		StringBuilder builder = new StringBuilder();
-		if(handData.QueryNumberOfHands() == 0) {
-			handToGesture.clear();
-		}
 		for(Integer hand: handToGesture.keySet()) {
 			builder.append("hand #" + hand + "\n");
 			builder.append("   gesture: " + handToGesture.get(hand) + "\n");
@@ -140,6 +138,19 @@ public class HandTracking extends ApplicationAdapter {
 			PXCHandData.GestureData gestureData = new PXCHandData.GestureData();
 			handData.QueryFiredGestureData(i, gestureData);
 			handToGesture.put(gestureData.getHandId(), gestureData.GetCName());
+		}
+		
+		// Check alerts, we need to remove any hands that are no
+		// long detected.
+		for(int i = 0; i < handData.QueryFiredAlertsNumber(); i++) {
+			PXCHandData.AlertData alertData = new PXCHandData.AlertData();
+			handData.QueryFiredAlertData(i, alertData);
+			if(alertData.getLabel() == AlertType.ALERT_HAND_DETECTED) {
+				Gdx.app.log("HandTracking", "Detected hand");
+			} else if(alertData.getLabel() == AlertType.ALERT_HAND_NOT_DETECTED) {
+				Gdx.app.log("HandTracking", "Hand lost");
+				handToGesture.remove(alertData.getHandId());
+			}
 		}
 		
 		// log fps
