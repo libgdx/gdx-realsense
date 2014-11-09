@@ -1,5 +1,5 @@
 # libGDX RealSense SDK Integration
-Intel's RealSense SDK let's you create new immersive experiences by combining smart algorithms and innovative hardware. The SDK provides functionality such as face tracking and analysis, hand and hand gesture detection, speech analysis and synthesis and many more features.
+[Intel's RealSense SDK](https://software.intel.com/en-us/realsense/) let's you create new immersive experiences by combining smart algorithms and innovative hardware. The SDK provides functionality such as face tracking and analysis, hand and hand gesture detection, speech analysis and synthesis and many more features.
 
 This project allows you to integrate Intel's RealSense SDK into your libGDX application. The integration exposes the full set of C++ APIs of the SDK in a Java-compatible way through a SWIG JNI wrapper. This makes it very easy to translate code samples of the [RealSense SDK API documentation](https://software.intel.com/en-us/realsense/documentation) to Java! 
 
