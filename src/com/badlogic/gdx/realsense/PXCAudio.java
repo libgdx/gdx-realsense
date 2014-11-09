@@ -31,9 +31,8 @@ public class PXCAudio extends PXCBase {
     super.delete();
   }
 
-  public static SWIGTYPE_p_wchar_t AudioFormatToString(PXCAudio.AudioFormat format) {
-    long cPtr = realsenseJNI.PXCAudio_AudioFormatToString(format.swigValue());
-    return (cPtr == 0) ? null : new SWIGTYPE_p_wchar_t(cPtr, false);
+  public static String AudioFormatToString(PXCAudio.AudioFormat format) {
+    return realsenseJNI.PXCAudio_AudioFormatToString(format.swigValue());
   }
 
   public static int AudioFormatToSize(PXCAudio.AudioFormat format) {

@@ -214,6 +214,17 @@ static void SWIGUNUSED SWIG_JavaThrowException(JNIEnv *jenv, SWIG_JavaExceptionC
 #include <stdint.h>		// Use the C99 official header
 
 
+#include "wchar.h"
+
+int wstrlen(const wchar_t *s)
+{
+	int cnt = 0;
+	while(*s++)
+		cnt++;
+	return cnt;
+}
+
+
 #include <pxc3dscan.h>
 #include <pxc3dseg.h>
 #include <pxcaddref.h>
@@ -245,6 +256,14 @@ static void SWIGUNUSED SWIG_JavaThrowException(JNIEnv *jenv, SWIG_JavaExceptionC
 #include <pxcversion.h>
 #include <pxcvideomodule.h>
 
+SWIGINTERN wchar_t *PXCHandData_GestureData_GetCName(PXCHandData::GestureData *self){
+		return self->name;
+	}
+SWIGINTERN PXCHandData::IHand *PXCHandData_QueryHandData__SWIG_1(PXCHandData *self,PXCHandData::AccessOrderType accessOrder,pxcI32 index){
+		PXCHandData::IHand* handData = 0;
+		self->QueryHandData(accessOrder, index, handData);
+		return handData;
+	}
 
 #ifdef __cplusplus
 extern "C" {
@@ -1035,7 +1054,7 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXC3DScan_
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXC3DScan_1Reconstruct(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXC3DScan_1Reconstruct(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jstring jarg3) {
   jint jresult = 0 ;
   PXC3DScan *arg1 = (PXC3DScan *) 0 ;
   PXC3DScan::FileFormat arg2 ;
@@ -1047,15 +1066,24 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXC3DScan_1
   (void)jarg1_;
   arg1 = *(PXC3DScan **)&jarg1; 
   arg2 = (PXC3DScan::FileFormat)jarg2; 
-  arg3 = *(pxcCHAR **)&jarg3; 
+  {
+    arg3 = 0;
+    if (jarg3) {
+      arg3 = (pxcCHAR *)jenv->GetStringChars(jarg3, 0);
+      if (!arg3) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->Reconstruct(arg2,(pxcCHAR const *)arg3);
   jresult = (jint)result; 
+  {
+    if (arg3) jenv->ReleaseStringChars(jarg3, (const jchar *) arg3); 
+  }
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXC3DScan_1FileFormatToString(JNIEnv *jenv, jclass jcls, jint jarg1) {
-  jlong jresult = 0 ;
+SWIGEXPORT jstring JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXC3DScan_1FileFormatToString(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jstring jresult = 0 ;
   PXC3DScan::FileFormat arg1 ;
   pxcCHAR *result = 0 ;
   
@@ -1063,7 +1091,9 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXC3DScan_
   (void)jcls;
   arg1 = (PXC3DScan::FileFormat)jarg1; 
   result = (pxcCHAR *)PXC3DScan::FileFormatToString(arg1);
-  *(pxcCHAR **)&jresult = result; 
+  {
+    if(result) jresult = jenv->NewString((const jchar *) result, wstrlen (result)); 
+  }
   return jresult;
 }
 
@@ -1122,8 +1152,8 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCAudio_1A
 }
 
 
-SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCAudio_1AudioFormatToString(JNIEnv *jenv, jclass jcls, jint jarg1) {
-  jlong jresult = 0 ;
+SWIGEXPORT jstring JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCAudio_1AudioFormatToString(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jstring jresult = 0 ;
   PXCAudio::AudioFormat arg1 ;
   pxcCHAR *result = 0 ;
   
@@ -1131,7 +1161,9 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCAudio_1
   (void)jcls;
   arg1 = (PXCAudio::AudioFormat)jarg1; 
   result = (pxcCHAR *)PXCAudio::AudioFormatToString(arg1);
-  *(pxcCHAR **)&jresult = result; 
+  {
+    if(result) jresult = jenv->NewString((const jchar *) result, wstrlen (result)); 
+  }
   return jresult;
 }
 
@@ -2104,8 +2136,8 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1StreamTypeToString(JNIEnv *jenv, jclass jcls, jint jarg1) {
-  jlong jresult = 0 ;
+SWIGEXPORT jstring JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture_1StreamTypeToString(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jstring jresult = 0 ;
   PXCCapture::StreamType arg1 ;
   pxcCHAR *result = 0 ;
   
@@ -2113,7 +2145,9 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCapture
   (void)jcls;
   arg1 = (PXCCapture::StreamType)jarg1; 
   result = (pxcCHAR *)PXCCapture::StreamTypeToString(arg1);
-  *(pxcCHAR **)&jresult = result; 
+  {
+    if(result) jresult = jenv->NewString((const jchar *) result, wstrlen (result)); 
+  }
   return jresult;
 }
 
@@ -5066,7 +5100,7 @@ SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCaptureM
 }
 
 
-SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCaptureManager_1FilterByDeviceInfo_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4) {
+SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCaptureManager_1FilterByDeviceInfo_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3, jint jarg4) {
   PXCCaptureManager *arg1 = (PXCCaptureManager *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
   pxcCHAR *arg3 = (pxcCHAR *) 0 ;
@@ -5076,10 +5110,28 @@ SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCaptureM
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCCaptureManager **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
-  arg3 = *(pxcCHAR **)&jarg3; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return ;
+    }
+  }
+  {
+    arg3 = 0;
+    if (jarg3) {
+      arg3 = (pxcCHAR *)jenv->GetStringChars(jarg3, 0);
+      if (!arg3) return ;
+    }
+  }
   arg4 = (pxcI32)jarg4; 
   (arg1)->FilterByDeviceInfo(arg2,arg3,arg4);
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
+  {
+    if (arg3) jenv->ReleaseStringChars(jarg3, (const jchar *) arg3); 
+  }
 }
 
 
@@ -5249,7 +5301,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCaptureM
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCaptureManager_1SetFileName(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jint jarg3) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCaptureManager_1SetFileName(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3) {
   jint jresult = 0 ;
   PXCCaptureManager *arg1 = (PXCCaptureManager *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -5260,10 +5312,19 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCCaptureM
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCCaptureManager **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   arg3 = (pxcBool)jarg3; 
   result = (pxcStatus)(arg1)->SetFileName((pxcCHAR const *)arg2,arg3);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
@@ -6921,7 +6982,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConf
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConfiguration_1RecognitionConfiguration_1UseStorage(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConfiguration_1RecognitionConfiguration_1UseStorage(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCFaceConfiguration::RecognitionConfiguration *arg1 = (PXCFaceConfiguration::RecognitionConfiguration *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -6931,9 +6992,18 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConf
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCFaceConfiguration::RecognitionConfiguration **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->UseStorage(arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
@@ -6956,7 +7026,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConf
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConfiguration_1RecognitionConfiguration_1CreateStorage(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConfiguration_1RecognitionConfiguration_1CreateStorage(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
   jint jresult = 0 ;
   PXCFaceConfiguration::RecognitionConfiguration *arg1 = (PXCFaceConfiguration::RecognitionConfiguration *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -6968,15 +7038,24 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConf
   (void)jarg1_;
   (void)jarg3_;
   arg1 = *(PXCFaceConfiguration::RecognitionConfiguration **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   arg3 = *(PXCFaceConfiguration::RecognitionConfiguration::RecognitionStorageDesc **)&jarg3; 
   result = (pxcStatus)(arg1)->CreateStorage(arg2,arg3);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConfiguration_1RecognitionConfiguration_1SetStorageDesc(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConfiguration_1RecognitionConfiguration_1SetStorageDesc(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
   jint jresult = 0 ;
   PXCFaceConfiguration::RecognitionConfiguration *arg1 = (PXCFaceConfiguration::RecognitionConfiguration *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -6988,15 +7067,24 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConf
   (void)jarg1_;
   (void)jarg3_;
   arg1 = *(PXCFaceConfiguration::RecognitionConfiguration **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   arg3 = *(PXCFaceConfiguration::RecognitionConfiguration::RecognitionStorageDesc **)&jarg3; 
   result = (pxcStatus)(arg1)->SetStorageDesc(arg2,arg3);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConfiguration_1RecognitionConfiguration_1DeleteStorage(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConfiguration_1RecognitionConfiguration_1DeleteStorage(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCFaceConfiguration::RecognitionConfiguration *arg1 = (PXCFaceConfiguration::RecognitionConfiguration *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -7006,9 +7094,18 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceConf
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCFaceConfiguration::RecognitionConfiguration **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->DeleteStorage(arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
@@ -8957,7 +9054,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceData
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceData_1QueryAlertNameByID(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceData_1QueryAlertNameByID(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jstring jarg3) {
   jint jresult = 0 ;
   PXCFaceData *arg1 = (PXCFaceData *) 0 ;
   PXCFaceData::AlertData::AlertType arg2 ;
@@ -8969,9 +9066,18 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCFaceData
   (void)jarg1_;
   arg1 = *(PXCFaceData **)&jarg1; 
   arg2 = (PXCFaceData::AlertData::AlertType)jarg2; 
-  arg3 = *(pxcCHAR **)&jarg3; 
+  {
+    arg3 = 0;
+    if (jarg3) {
+      arg3 = (pxcCHAR *)jenv->GetStringChars(jarg3, 0);
+      if (!arg3) return 0;
+    }
+  }
   result = (pxcStatus)((PXCFaceData const *)arg1)->QueryAlertNameByID(arg2,arg3);
   jresult = (jint)result; 
+  {
+    if (arg3) jenv->ReleaseStringChars(jarg3, (const jchar *) arg3); 
+  }
   return jresult;
 }
 
@@ -9179,7 +9285,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConf
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1SetUserName(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1SetUserName(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCHandConfiguration *arg1 = (PXCHandConfiguration *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -9189,15 +9295,24 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConf
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCHandConfiguration **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->SetUserName((pxcCHAR const *)arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1QueryUserName(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
+SWIGEXPORT jstring JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1QueryUserName(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jstring jresult = 0 ;
   PXCHandConfiguration *arg1 = (PXCHandConfiguration *) 0 ;
   pxcCHAR *result = 0 ;
   
@@ -9206,7 +9321,9 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandCon
   (void)jarg1_;
   arg1 = *(PXCHandConfiguration **)&jarg1; 
   result = (pxcCHAR *)(arg1)->QueryUserName();
-  *(pxcCHAR **)&jresult = result; 
+  {
+    if(result) jresult = jenv->NewString((const jchar *) result, wstrlen (result)); 
+  }
   return jresult;
 }
 
@@ -9620,7 +9737,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConf
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1LoadGesturePack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1LoadGesturePack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCHandConfiguration *arg1 = (PXCHandConfiguration *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -9630,14 +9747,23 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConf
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCHandConfiguration **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->LoadGesturePack((pxcCHAR const *)arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1UnloadGesturePack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1UnloadGesturePack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCHandConfiguration *arg1 = (PXCHandConfiguration *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -9647,9 +9773,18 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConf
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCHandConfiguration **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->UnloadGesturePack((pxcCHAR const *)arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
@@ -9684,7 +9819,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConf
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1QueryGestureNameByIndex(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jlong jarg4) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1QueryGestureNameByIndex(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jstring jarg4) {
   jint jresult = 0 ;
   PXCHandConfiguration *arg1 = (PXCHandConfiguration *) 0 ;
   pxcI32 arg2 ;
@@ -9698,14 +9833,23 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConf
   arg1 = *(PXCHandConfiguration **)&jarg1; 
   arg2 = (pxcI32)jarg2; 
   arg3 = (pxcI32)jarg3; 
-  arg4 = *(pxcCHAR **)&jarg4; 
+  {
+    arg4 = 0;
+    if (jarg4) {
+      arg4 = (pxcCHAR *)jenv->GetStringChars(jarg4, 0);
+      if (!arg4) return 0;
+    }
+  }
   result = (pxcStatus)((PXCHandConfiguration const *)arg1)->QueryGestureNameByIndex(arg2,arg3,arg4);
   jresult = (jint)result; 
+  {
+    if (arg4) jenv->ReleaseStringChars(jarg4, (const jchar *) arg4); 
+  }
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1EnableGesture_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jint jarg3) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1EnableGesture_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3) {
   jint jresult = 0 ;
   PXCHandConfiguration *arg1 = (PXCHandConfiguration *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -9716,15 +9860,24 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConf
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCHandConfiguration **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   arg3 = (pxcBool)jarg3; 
   result = (pxcStatus)(arg1)->EnableGesture((pxcCHAR const *)arg2,arg3);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1EnableGesture_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1EnableGesture_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCHandConfiguration *arg1 = (PXCHandConfiguration *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -9734,9 +9887,18 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConf
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCHandConfiguration **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->EnableGesture((pxcCHAR const *)arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
@@ -9773,7 +9935,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConf
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1IsGestureEnabled(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1IsGestureEnabled(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCHandConfiguration *arg1 = (PXCHandConfiguration *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -9783,14 +9945,23 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConf
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCHandConfiguration **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcBool)((PXCHandConfiguration const *)arg1)->IsGestureEnabled((pxcCHAR const *)arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1DisableGesture(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConfiguration_1DisableGesture(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCHandConfiguration *arg1 = (PXCHandConfiguration *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -9800,9 +9971,18 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandConf
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCHandConfiguration **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->DisableGesture((pxcCHAR const *)arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
@@ -10850,6 +11030,23 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandDat
 }
 
 
+SWIGEXPORT jstring JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData_1GestureData_1GetCName(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jstring jresult = 0 ;
+  PXCHandData::GestureData *arg1 = (PXCHandData::GestureData *) 0 ;
+  wchar_t *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(PXCHandData::GestureData **)&jarg1; 
+  result = (wchar_t *)PXCHandData_GestureData_GetCName(arg1);
+  {
+    if(result) jresult = jenv->NewString((const jchar *) result, wstrlen (result)); 
+  }
+  return jresult;
+}
+
+
 SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_new_1PXCHandData_1GestureData(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   PXCHandData::GestureData *result = 0 ;
@@ -11337,7 +11534,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData_1IsGestureFired(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData_1IsGestureFired(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
   jint jresult = 0 ;
   PXCHandData *arg1 = (PXCHandData *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -11349,7 +11546,13 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData
   (void)jarg1_;
   (void)jarg3_;
   arg1 = *(PXCHandData **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   arg3 = *(PXCHandData::GestureData **)&jarg3;
   if (!arg3) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "PXCHandData::GestureData & reference is null");
@@ -11357,11 +11560,14 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData
   } 
   result = (pxcBool)((PXCHandData const *)arg1)->IsGestureFired((pxcCHAR const *)arg2,*arg3);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData_1IsGestureFiredByHand(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jint jarg3, jlong jarg4, jobject jarg4_) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData_1IsGestureFiredByHand(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jlong jarg4, jobject jarg4_) {
   jint jresult = 0 ;
   PXCHandData *arg1 = (PXCHandData *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -11374,7 +11580,13 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData
   (void)jarg1_;
   (void)jarg4_;
   arg1 = *(PXCHandData **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   arg3 = (pxcUID)jarg3; 
   arg4 = *(PXCHandData::GestureData **)&jarg4;
   if (!arg4) {
@@ -11383,6 +11595,9 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData
   } 
   result = (pxcBool)((PXCHandData const *)arg1)->IsGestureFiredByHand((pxcCHAR const *)arg2,arg3,*arg4);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
@@ -11427,7 +11642,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData_1QueryHandData(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jlong jarg4) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData_1QueryHandData_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jlong jarg4) {
   jint jresult = 0 ;
   PXCHandData *arg1 = (PXCHandData *) 0 ;
   PXCHandData::AccessOrderType arg2 ;
@@ -11471,6 +11686,25 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData
   } 
   result = (pxcStatus)((PXCHandData const *)arg1)->QueryHandDataById(arg2,*arg3);
   jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCHandData_1QueryHandData_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+  jlong jresult = 0 ;
+  PXCHandData *arg1 = (PXCHandData *) 0 ;
+  PXCHandData::AccessOrderType arg2 ;
+  pxcI32 arg3 ;
+  PXCHandData::IHand *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(PXCHandData **)&jarg1; 
+  arg2 = (PXCHandData::AccessOrderType)jarg2; 
+  arg3 = (pxcI32)jarg3; 
+  result = (PXCHandData::IHand *)PXCHandData_QueryHandData__SWIG_1(arg1,arg2,arg3);
+  *(PXCHandData::IHand **)&jresult = result; 
   return jresult;
 }
 
@@ -11601,8 +11835,8 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCImage_1P
 }
 
 
-SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCImage_1PixelFormatToString(JNIEnv *jenv, jclass jcls, jint jarg1) {
-  jlong jresult = 0 ;
+SWIGEXPORT jstring JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCImage_1PixelFormatToString(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jstring jresult = 0 ;
   PXCImage::PixelFormat arg1 ;
   pxcCHAR *result = 0 ;
   
@@ -11610,7 +11844,9 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCImage_1
   (void)jcls;
   arg1 = (PXCImage::PixelFormat)jarg1; 
   result = (pxcCHAR *)PXCImage::PixelFormatToString(arg1);
-  *(pxcCHAR **)&jresult = result; 
+  {
+    if(result) jresult = jenv->NewString((const jchar *) result, wstrlen (result)); 
+  }
   return jresult;
 }
 
@@ -13335,7 +13571,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseMan
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseManager_1EnableFace_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseManager_1EnableFace_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCSenseManager *arg1 = (PXCSenseManager *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -13345,9 +13581,18 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseMan
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCSenseManager **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->EnableFace(arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
@@ -13397,7 +13642,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseMan
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseManager_1EnableHand_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseManager_1EnableHand_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCSenseManager *arg1 = (PXCSenseManager *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -13407,9 +13652,18 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseMan
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCSenseManager **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->EnableHand(arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
@@ -13444,7 +13698,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseMan
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseManager_1Enable3DSeg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseManager_1Enable3DSeg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCSenseManager *arg1 = (PXCSenseManager *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -13454,9 +13708,18 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseMan
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCSenseManager **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->Enable3DSeg(arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
@@ -13476,7 +13739,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseMan
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseManager_1Enable3DScan_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseManager_1Enable3DScan_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCSenseManager *arg1 = (PXCSenseManager *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -13486,9 +13749,18 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSenseMan
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCSenseManager **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->Enable3DScan(arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
@@ -14524,7 +14796,7 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSession
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSession_1LoadImplFromFile(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSession_1LoadImplFromFile(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCSession *arg1 = (PXCSession *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -14534,14 +14806,23 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSession_
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCSession **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->LoadImplFromFile(arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSession_1UnloadImplFromFile(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSession_1UnloadImplFromFile(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCSession *arg1 = (PXCSession *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -14551,9 +14832,18 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSession_
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCSession **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->UnloadImplFromFile(arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
@@ -15717,7 +16007,7 @@ SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechRe
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechRecognition_1BuildGrammarFromFile(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jlong jarg4) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechRecognition_1BuildGrammarFromFile(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jstring jarg4) {
   jint jresult = 0 ;
   PXCSpeechRecognition *arg1 = (PXCSpeechRecognition *) 0 ;
   pxcUID arg2 ;
@@ -15731,9 +16021,18 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechRe
   arg1 = *(PXCSpeechRecognition **)&jarg1; 
   arg2 = (pxcUID)jarg2; 
   arg3 = (PXCSpeechRecognition::GrammarFileType)jarg3; 
-  arg4 = *(pxcCHAR **)&jarg4; 
+  {
+    arg4 = 0;
+    if (jarg4) {
+      arg4 = (pxcCHAR *)jenv->GetStringChars(jarg4, 0);
+      if (!arg4) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->BuildGrammarFromFile(arg2,arg3,arg4);
   jresult = (jint)result; 
+  {
+    if (arg4) jenv->ReleaseStringChars(jarg4, (const jchar *) arg4); 
+  }
   return jresult;
 }
 
@@ -15761,8 +16060,8 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechRe
 }
 
 
-SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechRecognition_1GetGrammarCompileErrors(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jlong jresult = 0 ;
+SWIGEXPORT jstring JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechRecognition_1GetGrammarCompileErrors(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  jstring jresult = 0 ;
   PXCSpeechRecognition *arg1 = (PXCSpeechRecognition *) 0 ;
   pxcUID arg2 ;
   pxcCHAR *result = 0 ;
@@ -15773,12 +16072,14 @@ SWIGEXPORT jlong JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechR
   arg1 = *(PXCSpeechRecognition **)&jarg1; 
   arg2 = (pxcUID)jarg2; 
   result = (pxcCHAR *)(arg1)->GetGrammarCompileErrors(arg2);
-  *(pxcCHAR **)&jresult = result; 
+  {
+    if(result) jresult = jenv->NewString((const jchar *) result, wstrlen (result)); 
+  }
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechRecognition_1AddVocabToDictation(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechRecognition_1AddVocabToDictation(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jstring jarg3) {
   jint jresult = 0 ;
   PXCSpeechRecognition *arg1 = (PXCSpeechRecognition *) 0 ;
   PXCSpeechRecognition::VocabFileType arg2 ;
@@ -15790,9 +16091,18 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechRe
   (void)jarg1_;
   arg1 = *(PXCSpeechRecognition **)&jarg1; 
   arg2 = (PXCSpeechRecognition::VocabFileType)jarg2; 
-  arg3 = *(pxcCHAR **)&jarg3; 
+  {
+    arg3 = 0;
+    if (jarg3) {
+      arg3 = (pxcCHAR *)jenv->GetStringChars(jarg3, 0);
+      if (!arg3) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->AddVocabToDictation(arg2,arg3);
   jresult = (jint)result; 
+  {
+    if (arg3) jenv->ReleaseStringChars(jarg3, (const jchar *) arg3); 
+  }
   return jresult;
 }
 
@@ -16225,7 +16535,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechSy
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechSynthesis_1BuildSentence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechSynthesis_1BuildSentence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jstring jarg3) {
   jint jresult = 0 ;
   PXCSpeechSynthesis *arg1 = (PXCSpeechSynthesis *) 0 ;
   pxcUID arg2 ;
@@ -16237,9 +16547,18 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCSpeechSy
   (void)jarg1_;
   arg1 = *(PXCSpeechSynthesis **)&jarg1; 
   arg2 = (pxcUID)jarg2; 
-  arg3 = *(pxcCHAR **)&jarg3; 
+  {
+    arg3 = 0;
+    if (jarg3) {
+      arg3 = (pxcCHAR *)jenv->GetStringChars(jarg3, 0);
+      if (!arg3) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->BuildSentence(arg2,arg3);
   jresult = (jint)result; 
+  {
+    if (arg3) jenv->ReleaseStringChars(jarg3, (const jchar *) arg3); 
+  }
   return jresult;
 }
 
@@ -17353,7 +17672,7 @@ SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchles
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1AddGestureActionMapping_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jint jarg3, jlong jarg4, jobject jarg4_) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1AddGestureActionMapping_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jlong jarg4, jobject jarg4_) {
   jint jresult = 0 ;
   PXCTouchlessController *arg1 = (PXCTouchlessController *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -17366,16 +17685,25 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchles
   (void)jarg1_;
   (void)jarg4_;
   arg1 = *(PXCTouchlessController **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   arg3 = (PXCTouchlessController::Action)jarg3; 
   arg4 = *(PXCTouchlessController::ActionHandler **)&jarg4; 
   result = (pxcStatus)(arg1)->AddGestureActionMapping(arg2,arg3,arg4);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1AddGestureActionMapping_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jint jarg3) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchlessController_1AddGestureActionMapping_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3) {
   jint jresult = 0 ;
   PXCTouchlessController *arg1 = (PXCTouchlessController *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -17386,10 +17714,19 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTouchles
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCTouchlessController **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   arg3 = (PXCTouchlessController::Action)jarg3; 
   result = (pxcStatus)(arg1)->AddGestureActionMapping(arg2,arg3);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
@@ -17857,7 +18194,7 @@ SWIGEXPORT void JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_delete_1PXC
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_1SetCameraParameters(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_1SetCameraParameters(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   PXCTracker *arg1 = (PXCTracker *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -17867,14 +18204,23 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCTracker **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   result = (pxcStatus)(arg1)->SetCameraParameters((pxcCHAR const *)arg2);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_1Set2DTrackFromFile_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jfloat jarg4, jfloat jarg5, jfloat jarg6) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_1Set2DTrackFromFile_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jfloat jarg4, jfloat jarg5, jfloat jarg6) {
   jint jresult = 0 ;
   PXCTracker *arg1 = (PXCTracker *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -17888,7 +18234,13 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCTracker **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   arg3 = *(pxcUID **)&jarg3;
   if (!arg3) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "pxcUID & reference is null");
@@ -17899,11 +18251,14 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_
   arg6 = (pxcF32)jarg6; 
   result = (pxcStatus)(arg1)->Set2DTrackFromFile((pxcCHAR const *)arg2,*arg3,arg4,arg5,arg6);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_1Set2DTrackFromFile_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_1Set2DTrackFromFile_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3) {
   jint jresult = 0 ;
   PXCTracker *arg1 = (PXCTracker *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -17914,7 +18269,13 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCTracker **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   arg3 = *(pxcUID **)&jarg3;
   if (!arg3) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "pxcUID & reference is null");
@@ -17922,6 +18283,9 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_
   } 
   result = (pxcStatus)(arg1)->Set2DTrackFromFile((pxcCHAR const *)arg2,*arg3);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 
@@ -17980,7 +18344,7 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_
 }
 
 
-SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_1Set3DTrack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4) {
+SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_1Set3DTrack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jlong jarg4) {
   jint jresult = 0 ;
   PXCTracker *arg1 = (PXCTracker *) 0 ;
   pxcCHAR *arg2 = (pxcCHAR *) 0 ;
@@ -17992,7 +18356,13 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_
   (void)jcls;
   (void)jarg1_;
   arg1 = *(PXCTracker **)&jarg1; 
-  arg2 = *(pxcCHAR **)&jarg2; 
+  {
+    arg2 = 0;
+    if (jarg2) {
+      arg2 = (pxcCHAR *)jenv->GetStringChars(jarg2, 0);
+      if (!arg2) return 0;
+    }
+  }
   arg3 = *(pxcUID **)&jarg3;
   if (!arg3) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "pxcUID & reference is null");
@@ -18005,6 +18375,9 @@ SWIGEXPORT jint JNICALL Java_com_badlogic_gdx_realsense_realsenseJNI_PXCTracker_
   } 
   result = (pxcStatus)(arg1)->Set3DTrack((pxcCHAR const *)arg2,*arg3,*arg4);
   jresult = (jint)result; 
+  {
+    if (arg2) jenv->ReleaseStringChars(jarg2, (const jchar *) arg2); 
+  }
   return jresult;
 }
 

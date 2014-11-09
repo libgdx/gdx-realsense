@@ -113,13 +113,12 @@ public class PXCHandConfiguration extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_ResetTracking(swigCPtr, this));
   }
 
-  public pxcStatus SetUserName(SWIGTYPE_p_wchar_t userName) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_SetUserName(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(userName)));
+  public pxcStatus SetUserName(String userName) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_SetUserName(swigCPtr, this, userName));
   }
 
-  public SWIGTYPE_p_wchar_t QueryUserName() {
-    long cPtr = realsenseJNI.PXCHandConfiguration_QueryUserName(swigCPtr, this);
-    return (cPtr == 0) ? null : new SWIGTYPE_p_wchar_t(cPtr, false);
+  public String QueryUserName() {
+    return realsenseJNI.PXCHandConfiguration_QueryUserName(swigCPtr, this);
   }
 
   public pxcStatus EnableJointSpeed(PXCHandData.JointType jointLabel, PXCHandData.JointSpeedType jointSpeed, int time) {
@@ -214,12 +213,12 @@ public class PXCHandConfiguration extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_UnsubscribeAlert(swigCPtr, this, PXCHandConfiguration.AlertHandler.getCPtr(alertHandler), alertHandler));
   }
 
-  public pxcStatus LoadGesturePack(SWIGTYPE_p_wchar_t gesturePackPath) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_LoadGesturePack(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(gesturePackPath)));
+  public pxcStatus LoadGesturePack(String gesturePackPath) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_LoadGesturePack(swigCPtr, this, gesturePackPath));
   }
 
-  public pxcStatus UnloadGesturePack(SWIGTYPE_p_wchar_t gesturePackPath) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_UnloadGesturePack(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(gesturePackPath)));
+  public pxcStatus UnloadGesturePack(String gesturePackPath) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_UnloadGesturePack(swigCPtr, this, gesturePackPath));
   }
 
   public pxcStatus UnloadAllGesturesPacks() {
@@ -230,16 +229,16 @@ public class PXCHandConfiguration extends PXCBase {
     return realsenseJNI.PXCHandConfiguration_QueryGesturesTotalNumber(swigCPtr, this);
   }
 
-  public pxcStatus QueryGestureNameByIndex(int index, int bufferSize, SWIGTYPE_p_wchar_t gestureName) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_QueryGestureNameByIndex(swigCPtr, this, index, bufferSize, SWIGTYPE_p_wchar_t.getCPtr(gestureName)));
+  public pxcStatus QueryGestureNameByIndex(int index, int bufferSize, String gestureName) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_QueryGestureNameByIndex(swigCPtr, this, index, bufferSize, gestureName));
   }
 
-  public pxcStatus EnableGesture(SWIGTYPE_p_wchar_t gestureName, int continuousGesture) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_EnableGesture__SWIG_0(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(gestureName), continuousGesture));
+  public pxcStatus EnableGesture(String gestureName, int continuousGesture) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_EnableGesture__SWIG_0(swigCPtr, this, gestureName, continuousGesture));
   }
 
-  public pxcStatus EnableGesture(SWIGTYPE_p_wchar_t gestureName) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_EnableGesture__SWIG_1(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(gestureName)));
+  public pxcStatus EnableGesture(String gestureName) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_EnableGesture__SWIG_1(swigCPtr, this, gestureName));
   }
 
   public pxcStatus EnableAllGestures(int continuousGesture) {
@@ -250,12 +249,12 @@ public class PXCHandConfiguration extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_EnableAllGestures__SWIG_1(swigCPtr, this));
   }
 
-  public int IsGestureEnabled(SWIGTYPE_p_wchar_t gestureName) {
-    return realsenseJNI.PXCHandConfiguration_IsGestureEnabled(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(gestureName));
+  public int IsGestureEnabled(String gestureName) {
+    return realsenseJNI.PXCHandConfiguration_IsGestureEnabled(swigCPtr, this, gestureName);
   }
 
-  public pxcStatus DisableGesture(SWIGTYPE_p_wchar_t gestureName) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_DisableGesture(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(gestureName)));
+  public pxcStatus DisableGesture(String gestureName) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCHandConfiguration_DisableGesture(swigCPtr, this, gestureName));
   }
 
   public pxcStatus DisableAllGestures() {

@@ -224,8 +224,8 @@ public class PXCSenseManager extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCSenseManager_EnableModule(swigCPtr, this, mid, PXCSession.ImplDesc.getCPtr(mdesc), mdesc));
   }
 
-  public pxcStatus EnableFace(SWIGTYPE_p_wchar_t name) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCSenseManager_EnableFace__SWIG_0(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(name)));
+  public pxcStatus EnableFace(String name) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCSenseManager_EnableFace__SWIG_0(swigCPtr, this, name));
   }
 
   public pxcStatus EnableFace() {
@@ -240,8 +240,8 @@ public class PXCSenseManager extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCSenseManager_EnableTracker(swigCPtr, this));
   }
 
-  public pxcStatus EnableHand(SWIGTYPE_p_wchar_t name) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCSenseManager_EnableHand__SWIG_0(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(name)));
+  public pxcStatus EnableHand(String name) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCSenseManager_EnableHand__SWIG_0(swigCPtr, this, name));
   }
 
   public pxcStatus EnableHand() {
@@ -252,16 +252,16 @@ public class PXCSenseManager extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCSenseManager_EnableTouchlessController(swigCPtr, this));
   }
 
-  public pxcStatus Enable3DSeg(SWIGTYPE_p_wchar_t name) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCSenseManager_Enable3DSeg__SWIG_0(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(name)));
+  public pxcStatus Enable3DSeg(String name) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCSenseManager_Enable3DSeg__SWIG_0(swigCPtr, this, name));
   }
 
   public pxcStatus Enable3DSeg() {
     return pxcStatus.swigToEnum(realsenseJNI.PXCSenseManager_Enable3DSeg__SWIG_1(swigCPtr, this));
   }
 
-  public pxcStatus Enable3DScan(SWIGTYPE_p_wchar_t name) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCSenseManager_Enable3DScan__SWIG_0(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(name)));
+  public pxcStatus Enable3DScan(String name) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCSenseManager_Enable3DScan__SWIG_0(swigCPtr, this, name));
   }
 
   public pxcStatus Enable3DScan() {

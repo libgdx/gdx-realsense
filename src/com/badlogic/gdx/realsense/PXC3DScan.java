@@ -44,13 +44,12 @@ public class PXC3DScan extends PXCBase {
     return (cPtr == 0) ? null : new PXCImage(cPtr, false);
   }
 
-  public pxcStatus Reconstruct(PXC3DScan.FileFormat in_type, SWIGTYPE_p_wchar_t in_filename) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXC3DScan_Reconstruct(swigCPtr, this, in_type.swigValue(), SWIGTYPE_p_wchar_t.getCPtr(in_filename)));
+  public pxcStatus Reconstruct(PXC3DScan.FileFormat in_type, String in_filename) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXC3DScan_Reconstruct(swigCPtr, this, in_type.swigValue(), in_filename));
   }
 
-  public static SWIGTYPE_p_wchar_t FileFormatToString(PXC3DScan.FileFormat format) {
-    long cPtr = realsenseJNI.PXC3DScan_FileFormatToString(format.swigValue());
-    return (cPtr == 0) ? null : new SWIGTYPE_p_wchar_t(cPtr, false);
+  public static String FileFormatToString(PXC3DScan.FileFormat format) {
+    return realsenseJNI.PXC3DScan_FileFormatToString(format.swigValue());
   }
 
   public final static class Mode {

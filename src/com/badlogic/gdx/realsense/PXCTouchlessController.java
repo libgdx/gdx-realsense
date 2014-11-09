@@ -412,12 +412,12 @@ public class PXCTouchlessController extends PXCBase {
   
   }
 
-  public pxcStatus AddGestureActionMapping(SWIGTYPE_p_wchar_t gestureName, PXCTouchlessController.Action action, PXCTouchlessController.ActionHandler actionHandler) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCTouchlessController_AddGestureActionMapping__SWIG_0(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(gestureName), action.swigValue(), PXCTouchlessController.ActionHandler.getCPtr(actionHandler), actionHandler));
+  public pxcStatus AddGestureActionMapping(String gestureName, PXCTouchlessController.Action action, PXCTouchlessController.ActionHandler actionHandler) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCTouchlessController_AddGestureActionMapping__SWIG_0(swigCPtr, this, gestureName, action.swigValue(), PXCTouchlessController.ActionHandler.getCPtr(actionHandler), actionHandler));
   }
 
-  public pxcStatus AddGestureActionMapping(SWIGTYPE_p_wchar_t gestureName, PXCTouchlessController.Action action) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCTouchlessController_AddGestureActionMapping__SWIG_1(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(gestureName), action.swigValue()));
+  public pxcStatus AddGestureActionMapping(String gestureName, PXCTouchlessController.Action action) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCTouchlessController_AddGestureActionMapping__SWIG_1(swigCPtr, this, gestureName, action.swigValue()));
   }
 
   public pxcStatus ClearAllGestureActionMappings() {

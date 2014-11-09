@@ -80,8 +80,8 @@ public class PXCCaptureManager extends PXCBase {
     realsenseJNI.PXCCaptureManager_FilterByDeviceInfo__SWIG_0(swigCPtr, this, PXCCapture.DeviceInfo.getCPtr(dinfo), dinfo);
   }
 
-  public void FilterByDeviceInfo(SWIGTYPE_p_wchar_t name, SWIGTYPE_p_wchar_t did, int didx) {
-    realsenseJNI.PXCCaptureManager_FilterByDeviceInfo__SWIG_1(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(name), SWIGTYPE_p_wchar_t.getCPtr(did), didx);
+  public void FilterByDeviceInfo(String name, String did, int didx) {
+    realsenseJNI.PXCCaptureManager_FilterByDeviceInfo__SWIG_1(swigCPtr, this, name, did, didx);
   }
 
   public void FilterByStreamProfiles(PXCCapture.Device.StreamProfileSet profiles) {
@@ -126,8 +126,8 @@ public class PXCCaptureManager extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCCaptureManager_ReadModuleStreamsAsync(swigCPtr, this, mid, PXCCapture.Sample.getCPtr(sample), sample, SWIGTYPE_p_p_PXCSyncPoint.getCPtr(sp)));
   }
 
-  public pxcStatus SetFileName(SWIGTYPE_p_wchar_t file, int record) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCCaptureManager_SetFileName(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(file), record));
+  public pxcStatus SetFileName(String file, int record) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCCaptureManager_SetFileName(swigCPtr, this, file, record));
   }
 
   public void SetMask(PXCCapture.StreamType types) {

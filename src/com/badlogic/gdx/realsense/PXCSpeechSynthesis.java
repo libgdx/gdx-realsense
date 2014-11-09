@@ -142,8 +142,8 @@ public class PXCSpeechSynthesis extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCSpeechSynthesis_SetProfile(swigCPtr, this, PXCSpeechSynthesis.ProfileInfo.getCPtr(pinfo), pinfo));
   }
 
-  public pxcStatus BuildSentence(int sid, SWIGTYPE_p_wchar_t sentence) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCSpeechSynthesis_BuildSentence(swigCPtr, this, sid, SWIGTYPE_p_wchar_t.getCPtr(sentence)));
+  public pxcStatus BuildSentence(int sid, String sentence) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCSpeechSynthesis_BuildSentence(swigCPtr, this, sid, sentence));
   }
 
   public PXCAudio QueryBuffer(int sid, int idx) {

@@ -31,9 +31,8 @@ public class PXCCapture extends PXCBase {
     super.delete();
   }
 
-  public static SWIGTYPE_p_wchar_t StreamTypeToString(PXCCapture.StreamType type) {
-    long cPtr = realsenseJNI.PXCCapture_StreamTypeToString(type.swigValue());
-    return (cPtr == 0) ? null : new SWIGTYPE_p_wchar_t(cPtr, false);
+  public static String StreamTypeToString(PXCCapture.StreamType type) {
+    return realsenseJNI.PXCCapture_StreamTypeToString(type.swigValue());
   }
 
   public static PXCCapture.StreamType StreamTypeFromIndex(int index) {

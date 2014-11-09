@@ -31,9 +31,8 @@ public class PXCImage extends PXCBase {
     super.delete();
   }
 
-  public static SWIGTYPE_p_wchar_t PixelFormatToString(PXCImage.PixelFormat format) {
-    long cPtr = realsenseJNI.PXCImage_PixelFormatToString(format.swigValue());
-    return (cPtr == 0) ? null : new SWIGTYPE_p_wchar_t(cPtr, false);
+  public static String PixelFormatToString(PXCImage.PixelFormat format) {
+    return realsenseJNI.PXCImage_PixelFormatToString(format.swigValue());
   }
 
   static public class ImageInfo {

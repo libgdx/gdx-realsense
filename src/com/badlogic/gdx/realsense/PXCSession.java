@@ -264,12 +264,12 @@ public class PXCSession extends PXCBase {
     return (cPtr == 0) ? null : new PXCAudio(cPtr, false);
   }
 
-  public pxcStatus LoadImplFromFile(SWIGTYPE_p_wchar_t moduleName) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCSession_LoadImplFromFile(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(moduleName)));
+  public pxcStatus LoadImplFromFile(String moduleName) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCSession_LoadImplFromFile(swigCPtr, this, moduleName));
   }
 
-  public pxcStatus UnloadImplFromFile(SWIGTYPE_p_wchar_t moduleName) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCSession_UnloadImplFromFile(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(moduleName)));
+  public pxcStatus UnloadImplFromFile(String moduleName) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCSession_UnloadImplFromFile(swigCPtr, this, moduleName));
   }
 
   public static PXCSession CreateInstance() {

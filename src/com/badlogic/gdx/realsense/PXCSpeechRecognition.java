@@ -383,21 +383,20 @@ public class PXCSpeechRecognition extends PXCBase {
     realsenseJNI.PXCSpeechRecognition_StopRec(swigCPtr, this);
   }
 
-  public pxcStatus BuildGrammarFromFile(int gid, PXCSpeechRecognition.GrammarFileType fileType, SWIGTYPE_p_wchar_t grammarFilename) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCSpeechRecognition_BuildGrammarFromFile(swigCPtr, this, gid, fileType.swigValue(), SWIGTYPE_p_wchar_t.getCPtr(grammarFilename)));
+  public pxcStatus BuildGrammarFromFile(int gid, PXCSpeechRecognition.GrammarFileType fileType, String grammarFilename) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCSpeechRecognition_BuildGrammarFromFile(swigCPtr, this, gid, fileType.swigValue(), grammarFilename));
   }
 
   public pxcStatus BuildGrammarFromMemory(int gid, PXCSpeechRecognition.GrammarFileType fileType, SWIGTYPE_p_void grammarMemory, int memSize) {
     return pxcStatus.swigToEnum(realsenseJNI.PXCSpeechRecognition_BuildGrammarFromMemory(swigCPtr, this, gid, fileType.swigValue(), SWIGTYPE_p_void.getCPtr(grammarMemory), memSize));
   }
 
-  public SWIGTYPE_p_wchar_t GetGrammarCompileErrors(int gid) {
-    long cPtr = realsenseJNI.PXCSpeechRecognition_GetGrammarCompileErrors(swigCPtr, this, gid);
-    return (cPtr == 0) ? null : new SWIGTYPE_p_wchar_t(cPtr, false);
+  public String GetGrammarCompileErrors(int gid) {
+    return realsenseJNI.PXCSpeechRecognition_GetGrammarCompileErrors(swigCPtr, this, gid);
   }
 
-  public pxcStatus AddVocabToDictation(PXCSpeechRecognition.VocabFileType fileType, SWIGTYPE_p_wchar_t vocabFileName) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCSpeechRecognition_AddVocabToDictation(swigCPtr, this, fileType.swigValue(), SWIGTYPE_p_wchar_t.getCPtr(vocabFileName)));
+  public pxcStatus AddVocabToDictation(PXCSpeechRecognition.VocabFileType fileType, String vocabFileName) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCSpeechRecognition_AddVocabToDictation(swigCPtr, this, fileType.swigValue(), vocabFileName));
   }
 
   public final static int NBEST_SIZE = realsenseJNI.PXCSpeechRecognition_NBEST_SIZE_get();

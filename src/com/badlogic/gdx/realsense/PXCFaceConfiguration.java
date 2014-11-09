@@ -554,24 +554,24 @@ public class PXCFaceConfiguration extends PXCBase {
       return PXCFaceConfiguration.RecognitionConfiguration.RecognitionRegistrationMode.swigToEnum(realsenseJNI.PXCFaceConfiguration_RecognitionConfiguration_GetRegistrationMode(swigCPtr, this));
     }
   
-    public pxcStatus UseStorage(SWIGTYPE_p_wchar_t storageName) {
-      return pxcStatus.swigToEnum(realsenseJNI.PXCFaceConfiguration_RecognitionConfiguration_UseStorage(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(storageName)));
+    public pxcStatus UseStorage(String storageName) {
+      return pxcStatus.swigToEnum(realsenseJNI.PXCFaceConfiguration_RecognitionConfiguration_UseStorage(swigCPtr, this, storageName));
     }
   
     public pxcStatus QueryActiveStorage(PXCFaceConfiguration.RecognitionConfiguration.RecognitionStorageDesc outStorage) {
       return pxcStatus.swigToEnum(realsenseJNI.PXCFaceConfiguration_RecognitionConfiguration_QueryActiveStorage(swigCPtr, this, PXCFaceConfiguration.RecognitionConfiguration.RecognitionStorageDesc.getCPtr(outStorage), outStorage));
     }
   
-    public pxcStatus CreateStorage(SWIGTYPE_p_wchar_t storageName, PXCFaceConfiguration.RecognitionConfiguration.RecognitionStorageDesc storageDesc) {
-      return pxcStatus.swigToEnum(realsenseJNI.PXCFaceConfiguration_RecognitionConfiguration_CreateStorage(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(storageName), PXCFaceConfiguration.RecognitionConfiguration.RecognitionStorageDesc.getCPtr(storageDesc), storageDesc));
+    public pxcStatus CreateStorage(String storageName, PXCFaceConfiguration.RecognitionConfiguration.RecognitionStorageDesc storageDesc) {
+      return pxcStatus.swigToEnum(realsenseJNI.PXCFaceConfiguration_RecognitionConfiguration_CreateStorage(swigCPtr, this, storageName, PXCFaceConfiguration.RecognitionConfiguration.RecognitionStorageDesc.getCPtr(storageDesc), storageDesc));
     }
   
-    public pxcStatus SetStorageDesc(SWIGTYPE_p_wchar_t storageName, PXCFaceConfiguration.RecognitionConfiguration.RecognitionStorageDesc storageDesc) {
-      return pxcStatus.swigToEnum(realsenseJNI.PXCFaceConfiguration_RecognitionConfiguration_SetStorageDesc(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(storageName), PXCFaceConfiguration.RecognitionConfiguration.RecognitionStorageDesc.getCPtr(storageDesc), storageDesc));
+    public pxcStatus SetStorageDesc(String storageName, PXCFaceConfiguration.RecognitionConfiguration.RecognitionStorageDesc storageDesc) {
+      return pxcStatus.swigToEnum(realsenseJNI.PXCFaceConfiguration_RecognitionConfiguration_SetStorageDesc(swigCPtr, this, storageName, PXCFaceConfiguration.RecognitionConfiguration.RecognitionStorageDesc.getCPtr(storageDesc), storageDesc));
     }
   
-    public pxcStatus DeleteStorage(SWIGTYPE_p_wchar_t storageName) {
-      return pxcStatus.swigToEnum(realsenseJNI.PXCFaceConfiguration_RecognitionConfiguration_DeleteStorage(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(storageName)));
+    public pxcStatus DeleteStorage(String storageName) {
+      return pxcStatus.swigToEnum(realsenseJNI.PXCFaceConfiguration_RecognitionConfiguration_DeleteStorage(swigCPtr, this, storageName));
     }
   
     public void SetDatabaseBuffer(SWIGTYPE_p_unsigned_char buffer, int size) {

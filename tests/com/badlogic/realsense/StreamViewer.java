@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.realsense.PXCCapture.Sample;
 import com.badlogic.gdx.realsense.PXCCapture.StreamType;
 import com.badlogic.gdx.realsense.PXCSenseManager;
+import com.badlogic.gdx.realsense.pxcStatus;
 import com.badlogic.gdx.realsense.utils.StreamTexture;
 
 public class StreamViewer extends ApplicationAdapter {
@@ -51,11 +52,13 @@ public class StreamViewer extends ApplicationAdapter {
 		
 		// acquire a new frame and update the 
 		// stream textures accordingly
-		senseManager.AcquireFrame();
-		Sample sample = senseManager.QuerySample();
-		colorTexture.updateFromFrame(sample);
-		depthTexture.updateFromFrame(sample);
-		senseManager.ReleaseFrame();
+		pxcStatus status = senseManager.AcquireFrame();
+		if(status == pxcStatus.PXC_STATUS_NO_ERROR) {
+			Sample sample = senseManager.QuerySample();
+			colorTexture.updateFromFrame(sample);
+			depthTexture.updateFromFrame(sample);
+			senseManager.ReleaseFrame();
+		}
 		
 		// draw the streams, we stretch them to the window size
 		batch.getProjectionMatrix().setToOrtho2D(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());

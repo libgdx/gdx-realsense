@@ -350,6 +350,10 @@ public class PXCHandData extends PXCBase {
       return (cPtr == 0) ? null : new SWIGTYPE_p_wchar_t(cPtr, false);
     }
   
+    public String GetCName() {
+      return realsenseJNI.PXCHandData_GestureData_GetCName(swigCPtr, this);
+    }
+  
     public GestureData() {
       this(realsenseJNI.new_PXCHandData_GestureData(), true);
     }
@@ -485,12 +489,12 @@ public class PXCHandData extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCHandData_QueryFiredGestureData(swigCPtr, this, index, PXCHandData.GestureData.getCPtr(gestureData), gestureData));
   }
 
-  public int IsGestureFired(SWIGTYPE_p_wchar_t gestureName, PXCHandData.GestureData gestureData) {
-    return realsenseJNI.PXCHandData_IsGestureFired(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(gestureName), PXCHandData.GestureData.getCPtr(gestureData), gestureData);
+  public int IsGestureFired(String gestureName, PXCHandData.GestureData gestureData) {
+    return realsenseJNI.PXCHandData_IsGestureFired(swigCPtr, this, gestureName, PXCHandData.GestureData.getCPtr(gestureData), gestureData);
   }
 
-  public int IsGestureFiredByHand(SWIGTYPE_p_wchar_t gestureName, int handID, PXCHandData.GestureData gestureData) {
-    return realsenseJNI.PXCHandData_IsGestureFiredByHand(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(gestureName), handID, PXCHandData.GestureData.getCPtr(gestureData), gestureData);
+  public int IsGestureFiredByHand(String gestureName, int handID, PXCHandData.GestureData gestureData) {
+    return realsenseJNI.PXCHandData_IsGestureFiredByHand(swigCPtr, this, gestureName, handID, PXCHandData.GestureData.getCPtr(gestureData), gestureData);
   }
 
   public int QueryNumberOfHands() {
@@ -502,11 +506,16 @@ public class PXCHandData extends PXCBase {
   }
 
   public pxcStatus QueryHandData(PXCHandData.AccessOrderType accessOrder, int index, SWIGTYPE_p_p_PXCHandData__IHand handData) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCHandData_QueryHandData(swigCPtr, this, accessOrder.swigValue(), index, SWIGTYPE_p_p_PXCHandData__IHand.getCPtr(handData)));
+    return pxcStatus.swigToEnum(realsenseJNI.PXCHandData_QueryHandData__SWIG_0(swigCPtr, this, accessOrder.swigValue(), index, SWIGTYPE_p_p_PXCHandData__IHand.getCPtr(handData)));
   }
 
   public pxcStatus QueryHandDataById(int handID, SWIGTYPE_p_p_PXCHandData__IHand handData) {
     return pxcStatus.swigToEnum(realsenseJNI.PXCHandData_QueryHandDataById(swigCPtr, this, handID, SWIGTYPE_p_p_PXCHandData__IHand.getCPtr(handData)));
+  }
+
+  public PXCHandData.IHand QueryHandData(PXCHandData.AccessOrderType accessOrder, int index) {
+    long cPtr = realsenseJNI.PXCHandData_QueryHandData__SWIG_1(swigCPtr, this, accessOrder.swigValue(), index);
+    return (cPtr == 0) ? null : new PXCHandData.IHand(cPtr, false);
   }
 
   public final static int NUMBER_OF_FINGERS = realsenseJNI.PXCHandData_NUMBER_OF_FINGERS_get();

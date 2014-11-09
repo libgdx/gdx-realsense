@@ -907,8 +907,8 @@ public class PXCFaceData extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCFaceData_QueryFiredAlertData(swigCPtr, this, index, PXCFaceData.AlertData.getCPtr(alertData), alertData));
   }
 
-  public pxcStatus QueryAlertNameByID(PXCFaceData.AlertData.AlertType alertEvent, SWIGTYPE_p_wchar_t outAlertName) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCFaceData_QueryAlertNameByID(swigCPtr, this, alertEvent.swigValue(), SWIGTYPE_p_wchar_t.getCPtr(outAlertName)));
+  public pxcStatus QueryAlertNameByID(PXCFaceData.AlertData.AlertType alertEvent, String outAlertName) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCFaceData_QueryAlertNameByID(swigCPtr, this, alertEvent.swigValue(), outAlertName));
   }
 
   public int QueryFiredAlertsNumber() {

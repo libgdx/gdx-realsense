@@ -158,16 +158,16 @@ public class PXCTracker extends PXCBase {
   
   }
 
-  public pxcStatus SetCameraParameters(SWIGTYPE_p_wchar_t filename) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCTracker_SetCameraParameters(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(filename)));
+  public pxcStatus SetCameraParameters(String filename) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCTracker_SetCameraParameters(swigCPtr, this, filename));
   }
 
-  public pxcStatus Set2DTrackFromFile(SWIGTYPE_p_wchar_t filename, SWIGTYPE_p_int cosID, float widthMM, float heightMM, float qualityThreshold) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCTracker_Set2DTrackFromFile__SWIG_0(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(filename), SWIGTYPE_p_int.getCPtr(cosID), widthMM, heightMM, qualityThreshold));
+  public pxcStatus Set2DTrackFromFile(String filename, SWIGTYPE_p_int cosID, float widthMM, float heightMM, float qualityThreshold) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCTracker_Set2DTrackFromFile__SWIG_0(swigCPtr, this, filename, SWIGTYPE_p_int.getCPtr(cosID), widthMM, heightMM, qualityThreshold));
   }
 
-  public pxcStatus Set2DTrackFromFile(SWIGTYPE_p_wchar_t filename, SWIGTYPE_p_int cosID) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCTracker_Set2DTrackFromFile__SWIG_1(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(filename), SWIGTYPE_p_int.getCPtr(cosID)));
+  public pxcStatus Set2DTrackFromFile(String filename, SWIGTYPE_p_int cosID) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCTracker_Set2DTrackFromFile__SWIG_1(swigCPtr, this, filename, SWIGTYPE_p_int.getCPtr(cosID)));
   }
 
   public pxcStatus Set2DTrackFromImage(PXCImage image, SWIGTYPE_p_int cosID, float widthMM, float heightMM, float qualityThreshold) {
@@ -178,8 +178,8 @@ public class PXCTracker extends PXCBase {
     return pxcStatus.swigToEnum(realsenseJNI.PXCTracker_Set2DTrackFromImage__SWIG_1(swigCPtr, this, PXCImage.getCPtr(image), image, SWIGTYPE_p_int.getCPtr(cosID)));
   }
 
-  public pxcStatus Set3DTrack(SWIGTYPE_p_wchar_t filename, SWIGTYPE_p_int firstCosID, SWIGTYPE_p_int lastCosID) {
-    return pxcStatus.swigToEnum(realsenseJNI.PXCTracker_Set3DTrack(swigCPtr, this, SWIGTYPE_p_wchar_t.getCPtr(filename), SWIGTYPE_p_int.getCPtr(firstCosID), SWIGTYPE_p_int.getCPtr(lastCosID)));
+  public pxcStatus Set3DTrack(String filename, SWIGTYPE_p_int firstCosID, SWIGTYPE_p_int lastCosID) {
+    return pxcStatus.swigToEnum(realsenseJNI.PXCTracker_Set3DTrack(swigCPtr, this, filename, SWIGTYPE_p_int.getCPtr(firstCosID), SWIGTYPE_p_int.getCPtr(lastCosID)));
   }
 
   public pxcStatus Set3DInstantTrack(int egoMotion) {
