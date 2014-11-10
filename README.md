@@ -1,6 +1,7 @@
 # libGDX RealSense SDK Integration
 
 [![RealSense & libGDX video](http://sht.tl/a3tIbi)](https://www.youtube.com/watch?v=ZybPe86W4ZI&feature=youtu.be)
+Click on the image above to view the video acompanying this guide!
 
 [Intel's RealSense SDK](https://software.intel.com/en-us/realsense/) let's you create new immersive experiences by combining smart algorithms and innovative hardware. The SDK provides functionality such as face tracking and analysis, hand and hand gesture detection, speech analysis and synthesis and many more features.
 
