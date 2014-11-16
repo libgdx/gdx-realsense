@@ -5,7 +5,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group = 'com.badlogicgames.gdx'
-version = '1.0.1'
+version = '1.0.0'
 ext.packaging = 'jar'
 
 def isDevBuild
@@ -94,7 +94,14 @@ uploadArchives {
                            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
                            distribution 'repo'
                        }
-                   }                   
+                   }
+
+                   developers {
+                      developer {
+                        id "badlogic"
+                        name "Mario Zechner"
+                      }
+                   }                 
                }
             }
         }
