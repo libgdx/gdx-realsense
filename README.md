@@ -28,13 +28,13 @@ This guide assumes you are familiar with creating a standard libGDX project. If 
 This guide assumes that you are using Eclipse as your IDE. Once you have created and imported you project into Eclipse, you can add the libGDX RealSense integration to your project.
 
  * Open the build.gradle file in the root directory of your project
- * Add the dependency `compile "com.badlogicgames.gdx:gdx-realsense:1.0.0-SNAPSHOT"` to the dependencies section of the core project:
+ * Add the dependency `compile "com.badlogicgames.gdx:gdx-realsense:1.0.0"` to the dependencies section of the core project:
 ```
  project(":core") {
     ...
     dependencies {
         ...
-        compile "com.badlogicgames.gdx:gdx-realsense:1.0.0-SNAPSHOT"
+        compile "com.badlogicgames.gdx:gdx-realsense:1.0.0"
     }
 }
 ```
