@@ -34,7 +34,7 @@ This guide assumes that you are using Eclipse as your IDE. Once you have created
     ...
     dependencies {
         ...
-        compile "com.badlogicgames.gdx:gdx-realsense:1.0.0-SNAPSHOT"
+        compile "com.badlogicgames.gdx:gdx-realsense:1.0.0"
     }
 }
 ```
